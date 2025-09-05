@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,59 +25,135 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Desktop Navigation - Top */}
-      <nav className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-white/80 backdrop-blur-xl border-b border-gray-100/50 shadow-sm' 
-          : 'bg-transparent'
-      }`}>
-        <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <div className="flex items-center space-x-3 group">
-              <div className="relative">
-                <BookOpen className="h-10 w-10 text-blue-600 transition-all duration-300 group-hover:rotate-12" />
-                <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <span className="text-2xl font-light text-gray-900 tracking-wide">The Open Book</span>
-            </div>
-
-            {/* Desktop Menu */}
-            <div className="flex items-center space-x-1">
-              {navItems.map((item) => (
-                <a
-                  key={item.id}
-                  href={item.href}
-                  className="group relative px-6 py-3 text-gray-600 hover:text-blue-600 transition-all duration-300"
-                >
-                  <span className="relative z-10 font-medium">{item.label}</span>
-                  <div className="absolute inset-0 bg-blue-50 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out"></div>
-                </a>
+      {/* Desktop Floating Vertical Navigation */}
+      <nav className="hidden lg:block fixed right-8 top-1/2 -translate-y-1/2 z-50">
+        <div className="relative">
+          {/* Main Navigation Container */}
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-2 shadow-xl shadow-black/10">
+            <div className="flex flex-col space-y-1">
+              {navItems.map((item, index) => (
+                <div key={item.id} className="relative group">
+                  <a
+                    href={item.href}
+                    className={`relative flex items-center justify-center w-14 h-14 rounded-xl transition-all duration-300 hover:bg-white/20 ${
+                      activeSection === item.id 
+                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/25 hover:text-blue-600' 
+                        : 'text-gray-600 hover:text-blue-600'
+                    }`}
+                    onMouseEnter={() => setActiveSection(item.id)}
+                  >
+                    <item.icon className={`h-5 w-5 transition-all duration-300 ${
+                      activeSection === item.id ? 'scale-110' : 'group-hover:scale-110'
+                    }`} />
+                    
+                    {/* Tooltip */}
+                    <div className="absolute right-full mr-4 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+                      {item.label}
+                      <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900"></div>
+                    </div>
+                  </a>
+                </div>
               ))}
               
+              {/* Separator */}
+              <div className="my-2 h-px bg-white/20"></div>
+              
               {/* CTA Button */}
+              <div className="relative group">
+                <a
+                  href="https://tagmango.com/creator/membership/free"
+                  className="relative flex items-center justify-center w-14 h-14 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5 group"
+                >
+                  <Plus className="h-5 w-5 transition-transform duration-300 group-hover:rotate-90" />
+                  
+                  {/* Tooltip */}
+                  <div className="absolute right-full mr-4 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+                    Join Free
+                    <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900"></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Floating Logo */}
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2">
+            <div className="group relative">
+              <div className="w-12 h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center shadow-xl hover:bg-white/20 transition-all duration-300">
+                <div className="w-8 h-8 flex items-center justify-center">
+                  <img src="/img/logo.png" className="w-full h-full object-contain" alt="The Open Book" />
+                </div>
+              </div>
+              
+              {/* Logo Tooltip */}
+              <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+                The Open Book
+                <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Tablet Navigation - Horizontal Floating */}
+      <nav className="hidden md:block lg:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-2 shadow-xl shadow-black/10">
+          <div className="flex items-center space-x-1">
+            {navItems.map((item) => (
+              <div key={item.id} className="relative group">
+                <a
+                  href={item.href}
+                  className={`relative flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 hover:bg-white/20 ${
+                    activeSection === item.id 
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/25' 
+                      : 'text-gray-600 hover:text-blue-600'
+                  }`}
+                  onMouseEnter={() => setActiveSection(item.id)}
+                >
+                  <item.icon className={`h-5 w-5 transition-all duration-300 text-black ${
+                    activeSection === item.id ? 'scale-110' : 'group-hover:scale-110'
+                  }`} />
+                  
+                  {/* Tooltip */}
+                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+                    {item.label}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
+                  </div>
+                </a>
+              </div>
+            ))}
+            
+            {/* Separator */}
+            <div className="mx-2 w-px h-8 bg-white/20"></div>
+            
+            {/* CTA Button */}
+            <div className="relative group">
               <a
                 href="https://tagmango.com/creator/membership/free"
-                className="ml-4 group relative px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
+                className="relative flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5 group"
               >
-                <span className="relative z-10 font-medium flex items-center space-x-2">
-                  <Plus className="h-4 w-4" />
-                  <span>Join Free</span>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <Plus className="h-5 w-5 transition-transform duration-300 group-hover:rotate-90" />
+                
+                {/* Tooltip */}
+                <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+                  Join Free
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
+                </div>
               </a>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Navigation - Bottom */}
+      {/* Mobile Navigation */}
       <div className="md:hidden">
         {/* Mobile Header */}
         <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
           <div className="flex items-center justify-between px-4 py-4">
             <div className="flex items-center space-x-2">
-              <BookOpen className="h-8 w-8 text-blue-600" />
+              <div className="w-8 h-8 flex items-center justify-center">
+                <img src="/img/logo.png" className="w-full h-full object-contain" alt="" />
+              </div>
               <span className="text-xl font-light text-gray-900">The Open Book</span>
             </div>
             <button
@@ -92,7 +169,7 @@ export default function Navigation() {
         <div className={`fixed inset-0 z-40 bg-black/20 backdrop-blur-sm transition-opacity duration-300 ${
           isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}>
-          <div className={`absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-xl transition-all duration-300 ${
+          <div className={`absolute top-20 left-4 right-4 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl transition-all duration-300 ${
             isMobileMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}>
             <div className="p-6 space-y-4">
@@ -120,40 +197,41 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Bottom Navigation */}
-        <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-gray-100">
-          <div className="flex items-center justify-around px-2 py-2">
-            {navItems.map((item) => (
+        {/* Bottom Floating Navigation */}
+        <nav className="fixed bottom-4 left-4 right-4 z-50">
+          <div className="bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-2xl shadow-xl p-2">
+            <div className="flex items-center justify-around">
+              {navItems.map((item) => (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  className="group flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 hover:bg-blue-50 active:scale-95"
+                >
+                  <div className="relative">
+                    <item.icon className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-all duration-300 group-hover:scale-110" />
+                    <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <span className="text-xs text-gray-400 group-hover:text-blue-600 transition-colors duration-300 mt-1 font-medium">
+                    {item.label}
+                  </span>
+                </a>
+              ))}
+
+              {/* Floating Action Button */}
               <a
-                key={item.id}
-                href={item.href}
-                className="group flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-300 hover:bg-blue-50 active:scale-95"
+                href="https://tagmango.com/creator/membership/free"
+                className="group relative p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 active:scale-95"
               >
-                <div className="relative">
-                  <item.icon className="h-6 w-6 text-gray-400 group-hover:text-blue-600 transition-all duration-300 group-hover:scale-110" />
-                  <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <span className="text-xs text-gray-400 group-hover:text-blue-600 transition-colors duration-300 mt-1 font-medium">
-                  {item.label}
-                </span>
+                <Plus className="h-5 w-5 text-white group-hover:rotate-90 transition-transform duration-300" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
               </a>
-            ))}
-            
-            {/* Floating Action Button */}
-            <a
-              href="https://tagmango.com/creator/membership/free"
-              className="group relative p-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 active:scale-95"
-            >
-              <Plus className="h-6 w-6 text-white group-hover:rotate-90 transition-transform duration-300" />
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </a>
+            </div>
           </div>
         </nav>
       </div>
 
       {/* Spacer for mobile content */}
-      <div className="md:h-20 h-16 md:hidden"></div>
-      {/* <div className="h-20 pb-safe md:hidden"></div> */}
+      <div className="md:hidden h-20"></div>
     </>
   )
 }

@@ -218,7 +218,7 @@ export default function Footer() {
           aria-label="Scroll to top"
         >
           <ArrowUp className="h-5 w-5" />
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-75"></div>
+          {/* <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-75"></div> */}
         </button>
       </footer>
     </>
