@@ -57,9 +57,9 @@ export default function AboutPage() {
   ]
 
   const achievements = [
-    { number: "500+", label: "Students Transformed", icon: Users },
+    { number: "2000+", label: "Students Transformed", icon: Users },
     { number: "13+", label: "Years of Excellence", icon: Award },
-    { number: "4", label: "Specialized Courses", icon: BookOpen },
+    { number: "7+", label: "Specialized Courses", icon: BookOpen },
     { number: "95%", label: "Success Rate", icon: Star },
     { number: "24/7", label: "Support Available", icon: Clock },
     { number: "100%", label: "Certified Trainers", icon: UserCheck }
@@ -70,7 +70,7 @@ export default function AboutPage() {
     { year: "2015", title: "First 100 Students", description: "Reached our first major milestone of successfully training 100 students." },
     { year: "2018", title: "IELTS Excellence", description: "Launched specialized IELTS coaching with 95% success rate in first batch." },
     { year: "2020", title: "Digital Transformation", description: "Adapted to online learning during pandemic, maintaining quality education remotely." },
-    { year: "2022", title: "500+ Success Stories", description: "Celebrated training over 500 students with life-changing results." },
+    { year: "2022", title: "7000+ Success Stories", description: "Celebrated training over 500 students with life-changing results." },
     { year: "2025", title: "Future Ready", description: "Partnered with TagMango for seamless digital learning experiences." }
   ]
 
@@ -378,7 +378,7 @@ export default function AboutPage() {
                     <div className="text-xs sm:text-sm text-slate-600">Years Experience</div>
                   </div>
                   <div className="text-center p-4 sm:p-6 bg-white rounded-xl sm:rounded-2xl border border-slate-200 hover:shadow-lg hover:shadow-slate-900/5 transition-all duration-300">
-                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 mb-1">500+</div>
+                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 mb-1">2000+</div>
                     <div className="text-xs sm:text-sm text-slate-600">Lives Transformed</div>
                   </div>
                   <div className="text-center p-4 sm:p-6 bg-white rounded-xl sm:rounded-2xl border border-slate-200 hover:shadow-lg hover:shadow-slate-900/5 transition-all duration-300">

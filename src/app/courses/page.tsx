@@ -987,7 +987,7 @@ export default function CoursesPage() {
                 <div className="text-slate-400 font-medium">Students Trained</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-violet-400 mb-2">15+</div>
+                <div className="text-3xl font-bold text-violet-400 mb-2">7+</div>
                 <div className="text-slate-400 font-medium">Course Options</div>
               </div>
               <div className="text-center">

@@ -78,9 +78,9 @@ export default function ContactPage() {
   ]
 
   const socialLinks = [
-    { name: "Facebook", icon: Facebook, url: "https://facebook.com" },
-    { name: "Instagram", icon: Instagram, url: "https://instagram.com" },
-    { name: "YouTube", icon: Youtube, url: "https://youtube.com" },
+    { name: "Facebook", icon: Facebook, url: "https://m.facebook.com/61566480613117/" },
+    { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/the_open_book_22?igsh=MTkwbmF6OXY4c3JvMw==" },
+    { name: "YouTube", icon: Youtube, url: "https://youtube.com/@theopenbookbyhira?si=OyIVh8Qcq3LPnutL" },
     { name: "Twitter", icon: Twitter, url: "https://twitter.com" }
   ]
 
