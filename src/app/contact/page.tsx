@@ -46,18 +46,18 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: "Phone Support",
-      details: ["+91 98765 43210", "Available 24/7"],
+      details: ["+91 88934 67437", "Available 24/7"],
       description: "Call us anytime for immediate assistance",
       action: "Call Now",
-      link: "tel:+919876543210"
+      link: "tel:+918893467437"
     },
     {
       icon: Mail,
       title: "Email Support",
-      details: ["info@theopenbook.in", "Response within 24h"],
+      details: ["theopenbookbyhira@gmail.com", "Response within 24h"],
       description: "Send us a detailed message",
       action: "Send Email",
-      link: "mailto:info@theopenbook.in"
+      link: "mailto:theopenbookbyhira@gmail.com"
     },
     {
       icon: MapPin,
@@ -320,7 +320,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-semibold">Call or WhatsApp</p>
-                      <p className="text-slate-300 font-light">+91 98765 43210</p>
+                      <p className="text-slate-300 font-light">+91 88934 67437</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -329,7 +329,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-semibold">Email Us</p>
-                      <p className="text-slate-300 font-light">info@theopenbook.in</p>
+                      <p className="text-slate-300 font-light">theopenbookbyhira@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -376,7 +376,7 @@ export default function ContactPage() {
               </div>
 
               {/* Operating Hours */}
-              <div className="bg-white rounded-3xl shadow-xl shadow-slate-900/5 p-8 border border-slate-200/50">
+              {/* <div className="bg-white rounded-3xl shadow-xl shadow-slate-900/5 p-8 border border-slate-200/50">
                 <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
                   <Clock className="h-6 w-6 text-blue-600 mr-3" />
                   Operating Hours
@@ -400,14 +400,14 @@ export default function ContactPage() {
                     Extended hours during IELTS exam seasons and special programs
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-white">
+      {/* <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
@@ -435,10 +435,10 @@ export default function ContactPage() {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Statistics Section */}
-      <section className="py-24 bg-slate-50">
+      {/* <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">Why Students Choose Us</h2>
@@ -462,7 +462,7 @@ export default function ContactPage() {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-24 bg-slate-900">

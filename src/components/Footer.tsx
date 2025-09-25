@@ -178,7 +178,7 @@ export default function Footer() {
           </div>
 
           {/* Newsletter Section */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 mb-12 border border-white/10">
+          {/* <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 mb-12 border border-white/10">
             <div className="text-center">
               <h3 className="text-2xl font-light mb-2">Stay Updated</h3>
               <p className="text-gray-400 mb-6">Get the latest updates about our courses and events</p>
@@ -193,7 +193,7 @@ export default function Footer() {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Bottom Bar */}
           <div className="border-t border-white/10 pt-8 text-center">
