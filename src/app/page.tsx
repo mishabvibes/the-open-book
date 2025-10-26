@@ -927,15 +927,17 @@
 
 import { useState, useEffect } from 'react'
 import { Video, Zap, Briefcase, Mic, GraduationCap, MessageSquare, ChevronRight, Star, Users, Award, BookOpen, MessageCircle, Play, CheckCircle, ArrowRight, Phone, Mail, MapPin, Target, Clock, Globe } from 'lucide-react'
+import { LogoCloud } from '@/components/ui/logo-cloud'
+import { cn } from '@/lib/utils'
 
 export default function HomePage() {
   const [activeTestimonial, setActiveTestimonial] = useState(0)
-  const [stats, setStats] = useState({ students: 2000, courses: 7, experience: 13 })
+  const [stats, setStats] = useState({ students: 5000, courses: 10, experience: 13 })
 
   // Animated stats counter
   useEffect(() => {
     const timer = setTimeout(() => {
-      setStats({ students: 2000, courses: 7, experience: 13 })
+      setStats({ students: 5000, courses: 10, experience: 13 })
     }, 1000)
     return () => clearTimeout(timer)
   }, [])
@@ -1097,6 +1099,100 @@ export default function HomePage() {
     }
   ];
 
+  // Associated Institutions Logos
+  const associatedLogos = [
+    {
+      src: "/img/associated/AEC.webp",
+      alt: "AWH Engineering College, Kuttikatoor, Calicut",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/kmct.webp",
+      alt: "KMCT CEW, Calicut",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/GEC.webp",
+      alt: "Global Education Campus, Calicut",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/Horizone.webp",
+      alt: "Horizon Institute of Accounting",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/Academiz.webp",
+      alt: "Academix, Calicut",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/DLINE.webp",
+      alt: "DLINE Institute of Logistics",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/FACE.webp",
+      alt: "FACE Institute of Hotel Management",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/Weber.webp",
+      alt: "Weber Institute",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/VIMS.webp",
+      alt: "VIMS Aviation",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/MASTERED.webp",
+      alt: "Mastered Skill Academy",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/pure-english.webp",
+      alt: "Pure English",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/speak-easy.webp",
+      alt: "SpeakEazy",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/Ajinorah.webp",
+      alt: "Ajinorah",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/EDFIL.webp",
+      alt: "Edfil English",
+      width: 180,
+      height: 80,
+    },
+    {
+      src: "/img/associated/ANGLE.webp",
+      alt: "Angle Individual Tuition",
+      width: 180,
+      height: 80,
+    },
+  ];
+
   // Intensive Programs
   const intensivePrograms = [
     {
@@ -1124,7 +1220,7 @@ export default function HomePage() {
   const memberships = [
     {
       name: "Starter",
-      price: "₹1,999",
+      price: "₹9999",
       period: "/month",
       description: "Perfect for beginners starting their English learning journey",
       features: [
@@ -1139,7 +1235,7 @@ export default function HomePage() {
     },
     {
       name: "Professional",
-      price: "₹3,999",
+      price: "₹19,999",
       period: "/month",
       description: "Comprehensive package for serious learners",
       features: [
@@ -1155,8 +1251,8 @@ export default function HomePage() {
       cta: "Go Professional"
     },
     {
-      name: "Master",
-      price: "₹7,999",
+      name: "Premium",
+      price: "₹24,999",
       period: "/month",
       description: "Ultimate package for advanced learners and test preparation",
       features: [
@@ -1167,7 +1263,8 @@ export default function HomePage() {
         "Personalized study plan",
         "Expert feedback",
         "Offline classes access",
-        "Certification support"
+        "Certification support",
+        "Lifetime access to recorded sessions"
       ],
       popular: false,
       cta: "Master English"
@@ -1644,53 +1741,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Enhanced Testimonials Section */}
-        <section className="relative py-32 bg-white overflow-hidden">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `radial-gradient(circle at 2px 2px, #64748b 1px, transparent 0)`,
-              backgroundSize: '40px 40px'
-            }}></div>
+      {/* Associated Institutions Section */}
+      <section className="relative py-16 md:py-24 bg-white overflow-hidden">
+        {/* Background gradient */}
+        <div
+          aria-hidden="true"
+          className={cn(
+            "-z-10 -top-1/2 -translate-x-1/2 pointer-events-none absolute left-1/2 h-[120vmin] w-[120vmin] rounded-b-full",
+            "bg-[radial-gradient(ellipse_at_center,#64748b15,transparent_50%)]",
+            "blur-[30px]"
+          )}
+        />
+
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900">
+              <span className="font-bold">Associated with</span>
+            </h2>
           </div>
 
-          <div className="relative max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">We have worked with</h2>
-              <p className="text-2xl lg:text-3xl text-slate-600 font-light">hundreds of amazing students</p>
-            </div>
+          <div className="mx-auto my-6 md:my-8 h-px max-w-xs md:max-w-md bg-slate-200 [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
 
-            {/* Testimonials Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/80 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 hover:scale-105"
-                >
-                  <div className="space-y-4">
-                    <p className="text-slate-600 font-light leading-relaxed text-sm">
-                      "{testimonial.content}"
-                    </p>
+          <LogoCloud logos={associatedLogos} />
 
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center font-semibold text-white text-sm shadow-sm">
-                        {testimonial.avatar}
-                      </div>
-                      <div>
-                        <p className="font-semibold text-slate-900 text-sm">{testimonial.name}</p>
-                        <p className="text-slate-600 text-xs">{testimonial.role}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <div className="mt-6 md:mt-8 h-px bg-slate-200 [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
+        </div>
 
-          {/* Floating background elements */}
-          <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-violet-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </section>
+        {/* Floating background elements */}
+        <div className="hidden md:block absolute top-20 left-20 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="hidden md:block absolute bottom-20 right-20 w-80 h-80 bg-violet-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </section>
 
       {/* Enhanced Membership Plans Section */}
       <section className="relative py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
@@ -1711,7 +1791,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto ">
             {memberships.map((plan, index) => (
               <div key={index} className={`relative group ${plan.popular ? 'scale-105' : ''}`}>
                 <div className={`absolute -inset-0.5 bg-gradient-to-r rounded-3xl transition-opacity duration-300 ${plan.popular
@@ -1720,8 +1800,8 @@ export default function HomePage() {
                   }`}></div>
 
                 <div className={`relative bg-white/10 backdrop-blur-lg rounded-3xl border p-8 transition-all duration-500 ${plan.popular
-                    ? 'border-amber-400/50 bg-white/15'
-                    : 'border-white/20 hover:border-white/40 hover:bg-white/15'
+                    ? 'border-amber-400/50 bg-white/15 h-full'
+                    : 'border-white/20 hover:border-white/40 hover:bg-white/15 h-full'
                   }`}>
                   {plan.popular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">

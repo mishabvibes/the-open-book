@@ -28,38 +28,20 @@ export default function AboutPage() {
 
   const trainers = [
     {
-      name: "Sarah Johnson",
-      role: "Lead English Instructor",
-      experience: "8 years",
-      specialization: "Spoken English & IELTS",
-      certification: "TESOL Certified",
-      description: "Expert in conversational English with a passion for helping students overcome language barriers.",
-      initials: "SJ"
-    },
-    {
-      name: "Raj Kumar",
-      role: "Phonics Specialist",
-      experience: "6 years",
-      specialization: "Phonics & Foundation Skills",
-      certification: "Phonics Training Certified",
-      description: "Specializes in building strong reading foundations for children and adult learners.",
-      initials: "RK"
-    },
-    {
-      name: "Priya Menon",
-      role: "Personality Development Coach",
-      experience: "5 years",
-      specialization: "Soft Skills & Communication",
-      certification: "Life Coach Certified",
-      description: "Transforms confidence and leadership skills through comprehensive personality development programs.",
-      initials: "PM"
+      name: "Mishahira Arakkal",
+      role: "Lead English Instructor & Founder",
+      experience: "13+ years",
+      specialization: "All English Communication Skills",
+      certification: "Certified Language Trainer",
+      description: "Expert in Spoken English, IELTS, Phonics, Personality Development, and all aspects of English communication. With over 13 years of experience, Mishahira has transformed the lives of 5000+ students through personalized teaching methods and a passion for excellence.",
+      initials: "MA"
     }
   ]
 
   const achievements = [
-    { number: "2000+", label: "Students Transformed", icon: Users },
+    { number: "5000+", label: "Students Transformed", icon: Users },
     { number: "13+", label: "Years of Excellence", icon: Award },
-    { number: "7+", label: "Specialized Courses", icon: BookOpen },
+    { number: "10+", label: "Specialized Courses", icon: BookOpen },
     { number: "95%", label: "Success Rate", icon: Star },
     { number: "24/7", label: "Support Available", icon: Clock },
     { number: "100%", label: "Certified Trainers", icon: UserCheck }
@@ -67,7 +49,7 @@ export default function AboutPage() {
 
   const milestones = [
     { year: "2012", title: "Foundation", description: "The Open Book was founded with a vision to transform English education in Kerala." },
-    { year: "2015", title: "First 100 Students", description: "Reached our first major milestone of successfully training 100 students." },
+    { year: "2015", title: "First 500 Students", description: "Reached our first major milestone of successfully training 500 students." },
     { year: "2018", title: "IELTS Excellence", description: "Launched specialized IELTS coaching with 95% success rate in first batch." },
     { year: "2020", title: "Digital Transformation", description: "Adapted to online learning during pandemic, maintaining quality education remotely." },
     { year: "2022", title: "7000+ Success Stories", description: "Celebrated training over 500 students with life-changing results." },
@@ -221,37 +203,38 @@ export default function AboutPage() {
       <section className="py-16 sm:py-20 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6">Meet Our Expert Trainers</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6">Meet Our Expert Trainer</h2>
             <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto font-light">
-              Our certified trainers bring years of experience and passion for transforming lives through education.
+              Led by a certified trainer with years of experience and passion for transforming lives through education.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="flex justify-center">
             {trainers.map((trainer, index) => (
-              <div key={index} className="group bg-white rounded-2xl sm:rounded-3xl border border-slate-200 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 overflow-hidden">
-                <div className="p-6 sm:p-8">
+              <div key={index} className="group bg-white rounded-2xl sm:rounded-3xl border border-slate-200 hover:border-blue-300 hover:shadow-2xl hover:shadow-blue-900/10 transition-all duration-300 overflow-hidden max-w-2xl w-full">
+                <div className="p-8 sm:p-10 lg:p-12">
                   <div className="text-center mb-6 sm:mb-8">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 text-white text-lg sm:text-xl font-bold">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 text-white text-2xl sm:text-3xl font-bold shadow-lg">
                       {trainer.initials}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">{trainer.name}</h3>
-                    <p className="text-blue-600 font-semibold mb-1 text-sm sm:text-base">{trainer.role}</p>
-                    <p className="text-slate-500 text-xs sm:text-sm">{trainer.certification}</p>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">{trainer.name}</h3>
+                    <p className="text-blue-600 font-semibold mb-2 text-base sm:text-lg">{trainer.role}</p>
+                    <p className="text-slate-500 text-sm sm:text-base">{trainer.certification}</p>
                   </div>
                   
-                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                    <div className="flex items-center justify-between text-xs sm:text-sm">
-                      <span className="text-slate-500">Experience</span>
-                      <span className="font-medium text-slate-900">{trainer.experience}</span>
+                  <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8 bg-slate-50 rounded-xl p-4 sm:p-6">
+                    <div className="flex items-center justify-between text-sm sm:text-base">
+                      <span className="text-slate-600 font-medium">Experience</span>
+                      <span className="font-bold text-slate-900">{trainer.experience}</span>
                     </div>
-                    <div className="flex items-center justify-between text-xs sm:text-sm">
-                      <span className="text-slate-500">Specialization</span>
-                      <span className="font-medium text-slate-900 text-right">{trainer.specialization}</span>
+                    <div className="h-px bg-slate-200"></div>
+                    <div className="flex items-center justify-between text-sm sm:text-base">
+                      <span className="text-slate-600 font-medium">Specialization</span>
+                      <span className="font-bold text-slate-900 text-right">{trainer.specialization}</span>
                     </div>
                   </div>
                   
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-light">{trainer.description}</p>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-light text-center">{trainer.description}</p>
                 </div>
               </div>
             ))}
@@ -330,7 +313,7 @@ export default function AboutPage() {
               <div className="lg:col-span-1 order-1 lg:order-1">
                 <div className="relative">
                   <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 mx-auto rounded-2xl sm:rounded-3xl bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center text-white text-4xl sm:text-5xl lg:text-6xl font-bold shadow-2xl shadow-slate-900/10">
-                    TB
+                    <img src="/img/mam1.png" className='rounded-3xl' alt="" />
                   </div>
                   <div className="hidden sm:block absolute -bottom-4 -right-4 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl opacity-20 rotate-12"></div>
                   <div className="hidden sm:block absolute -top-4 -left-4 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-green-400 to-emerald-400 rounded-2xl opacity-30 -rotate-12"></div>
@@ -378,7 +361,7 @@ export default function AboutPage() {
                     <div className="text-xs sm:text-sm text-slate-600">Years Experience</div>
                   </div>
                   <div className="text-center p-4 sm:p-6 bg-white rounded-xl sm:rounded-2xl border border-slate-200 hover:shadow-lg hover:shadow-slate-900/5 transition-all duration-300">
-                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 mb-1">2000+</div>
+                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 mb-1">5000+</div>
                     <div className="text-xs sm:text-sm text-slate-600">Lives Transformed</div>
                   </div>
                   <div className="text-center p-4 sm:p-6 bg-white rounded-xl sm:rounded-2xl border border-slate-200 hover:shadow-lg hover:shadow-slate-900/5 transition-all duration-300">
@@ -401,11 +384,11 @@ export default function AboutPage() {
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <div className="space-y-4 p-6 rounded-3xl border border-slate-700 hover:border-slate-600 hover:bg-slate-800 transition-all duration-300">
+            {/* <div className="space-y-4 p-6 rounded-3xl border border-slate-700 hover:border-slate-600 hover:bg-slate-800 transition-all duration-300">
               <CheckCircle className="h-8 w-8 mx-auto text-green-400" />
               <h3 className="text-xl font-semibold">Certified Trainers</h3>
               <p className="text-slate-300 font-light leading-relaxed">All our instructors are certified professionals with proven expertise</p>
-            </div>
+            </div> */}
             <div className="space-y-4 p-6 rounded-3xl border border-slate-700 hover:border-slate-600 hover:bg-slate-800 transition-all duration-300">
               <CheckCircle className="h-8 w-8 mx-auto text-green-400" />
               <h3 className="text-xl font-semibold">Personalized Attention</h3>

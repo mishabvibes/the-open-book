@@ -983,11 +983,11 @@ export default function CoursesPage() {
 
             <div className="grid md:grid-cols-3 gap-8 mt-16 pt-16 border-t border-slate-700">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400 mb-2">2000+</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">5000+</div>
                 <div className="text-slate-400 font-medium">Students Trained</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-violet-400 mb-2">7+</div>
+                <div className="text-3xl font-bold text-violet-400 mb-2">10+</div>
                 <div className="text-slate-400 font-medium">Course Options</div>
               </div>
               <div className="text-center">
