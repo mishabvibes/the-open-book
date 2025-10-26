@@ -1,50 +1,9 @@
-'use client'
-
-import { useState } from 'react'
 import { BookOpen, Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageCircle, Users, Calendar, ArrowRight, Globe, Facebook, Instagram, Youtube, Twitter, Star } from 'lucide-react'
-import { FadeIn } from '@/components/ui/fade-in'
-import { ScaleIn } from '@/components/ui/scale-in'
-import { StaggerContainer, StaggerItem } from '@/components/ui/stagger-container'
-import { SlideIn } from '@/components/ui/slide-in'
+import { FadeIn, ScaleIn, StaggerContainer, StaggerItem, SlideIn } from '@/components/client/AnimatedWrapper'
+import { ContactForm } from '@/components/client/ContactForm'
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    course: '',
-    message: ''
-  })
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-    
-    try {
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      setIsSubmitted(true)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        course: '',
-        message: ''
-      })
-    } catch (error) {
-      console.error('Error submitting form:', error)
-    } finally {
-      setIsLoading(false)
-    }
-  }
+  // All data is server-side, form state is in ContactForm client component
 
   const contactInfo = [
     {
@@ -209,117 +168,8 @@ export default function ContactPage() {
                   <p className="text-slate-600 font-light">Fill out the form below and we'll get back to you within 24 hours.</p>
                 </div>
 
-                {isSubmitted ? (
-                  <div className="text-center py-12">
-                    <div className="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <CheckCircle className="h-8 w-8 text-green-600" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-4">Thank You!</h3>
-                    <p className="text-slate-600 mb-6 font-light">Your message has been sent successfully. We'll respond within 24 hours.</p>
-                    <button 
-                      onClick={() => setIsSubmitted(false)}
-                      className="bg-slate-900 text-white px-6 py-3 rounded-2xl font-semibold hover:bg-slate-800 transition-all duration-200"
-                    >
-                      Send Another Message
-                    </button>
-                  </div>
-                ) : (
-                  <div className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="name" className="block text-slate-700 font-medium mb-2">Full Name *</label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full px-4 py-3 border border-slate-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all font-light"
-                          placeholder="Enter your full name"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="email" className="block text-slate-700 font-medium mb-2">Email Address *</label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full px-4 py-3 border border-slate-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all font-light"
-                          placeholder="Enter your email"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="phone" className="block text-slate-700 font-medium mb-2">Phone Number *</label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full px-4 py-3 border border-slate-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all font-light"
-                          placeholder="Enter your phone number"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="course" className="block text-slate-700 font-medium mb-2">Interested Course</label>
-                        <select
-                          id="course"
-                          name="course"
-                          value={formData.course}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-slate-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all font-light"
-                        >
-                          <option value="">Select a course</option>
-                          <option value="spoken-english">Spoken English & Soft Skills</option>
-                          <option value="phonics">Phonics Training</option>
-                          <option value="ielts">IELTS Coaching</option>
-                          <option value="personality">Personality Development</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="message" className="block text-slate-700 font-medium mb-2">Message *</label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                        rows={6}
-                        className="w-full px-4 py-3 border border-slate-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none font-light"
-                        placeholder="Tell us about your learning goals, questions, or how we can help you..."
-                      />
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={handleSubmit}
-                      disabled={isLoading}
-                      className="w-full bg-slate-900 text-white py-4 px-8 rounded-2xl font-semibold hover:bg-slate-800 transition-all duration-200 transform hover:scale-105 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isLoading ? (
-                        <>
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          Send Message
-                          <Send className="ml-2 h-5 w-5" />
-                        </>
-                      )}
-                    </button>
-                  </div>
-                )}
+                {/* Contact Form - Client Component */}
+                <ContactForm />
               </div>
             </div>
             </SlideIn>

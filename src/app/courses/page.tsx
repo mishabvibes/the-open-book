@@ -2,11 +2,10 @@
 
 import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useState } from 'react'
 import { BookOpen, Clock, Users, Star, CheckCircle, ArrowRight, Filter, Search, Play, Award, Target, Globe, MessageCircle, ChevronRight, Video, MapPin, Calendar, Zap, User, GraduationCap, FileText, Briefcase } from 'lucide-react'
-import { FadeIn } from '@/components/ui/fade-in'
-import { ScaleIn } from '@/components/ui/scale-in'
-import { StaggerContainer, StaggerItem } from '@/components/ui/stagger-container'
+import { FadeIn, ScaleIn, StaggerContainer, StaggerItem } from '@/components/client/AnimatedWrapper'
 
 export default function CoursesPage() {
+  // Courses page keeps 'use client' due to complex filtering/search state
   const [activeTab, setActiveTab] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedMode, setSelectedMode] = useState('live')

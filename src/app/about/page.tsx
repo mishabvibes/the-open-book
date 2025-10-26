@@ -1,9 +1,5 @@
-'use client'
-
 import { BookOpen, Users, Award, Target, Heart, Star, CheckCircle, ArrowRight, Globe, Trophy, Clock, UserCheck, ChevronRight } from 'lucide-react'
-import { FadeIn } from '@/components/ui/fade-in'
-import { ScaleIn } from '@/components/ui/scale-in'
-import { StaggerContainer, StaggerItem } from '@/components/ui/stagger-container'
+import { FadeIn, ScaleIn, StaggerContainer, StaggerItem } from '@/components/client/AnimatedWrapper'
 
 export default function AboutPage() {
   const values = [
