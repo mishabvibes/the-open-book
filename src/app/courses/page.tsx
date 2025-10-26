@@ -2,6 +2,9 @@
 
 import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useState } from 'react'
 import { BookOpen, Clock, Users, Star, CheckCircle, ArrowRight, Filter, Search, Play, Award, Target, Globe, MessageCircle, ChevronRight, Video, MapPin, Calendar, Zap, User, GraduationCap, FileText, Briefcase } from 'lucide-react'
+import { FadeIn } from '@/components/ui/fade-in'
+import { ScaleIn } from '@/components/ui/scale-in'
+import { StaggerContainer, StaggerItem } from '@/components/ui/stagger-container'
 
 export default function CoursesPage() {
   const [activeTab, setActiveTab] = useState('all')
@@ -478,24 +481,30 @@ export default function CoursesPage() {
 
         <div className="relative max-w-7xl mx-auto px-6 py-20 lg:py-32">
           <div className="text-center max-w-5xl mx-auto mb-16">
-            <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-violet-50 border border-blue-200/50 text-blue-700 px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-sm">
-              <GraduationCap className="w-4 h-4 mr-2" />
-              Transform Your Communication Skills
-            </div>
+            <FadeIn delay={0.1} direction="down">
+              <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-violet-50 border border-blue-200/50 text-blue-700 px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-sm">
+                <GraduationCap className="w-4 h-4 mr-2" />
+                Transform Your Communication Skills
+              </div>
+            </FadeIn>
 
-            <h1 className="text-6xl lg:text-8xl font-bold leading-tight mb-8">
-              <span className="text-slate-900">Master</span>{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-violet-600 to-emerald-600 bg-clip-text text-transparent">
-                English
-              </span>
-            </h1>
+            <FadeIn delay={0.2} direction="up">
+              <h1 className="text-6xl lg:text-8xl font-bold leading-tight mb-8">
+                <span className="text-slate-900">Master</span>{' '}
+                <span className="bg-gradient-to-r from-blue-600 via-violet-600 to-emerald-600 bg-clip-text text-transparent">
+                  English
+                </span>
+              </h1>
+            </FadeIn>
 
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
-              Discover what makes our English learning programs stand out from the rest.
-            </p>
+            <FadeIn delay={0.3} direction="up">
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
+                Discover what makes our English learning programs stand out from the rest.
+              </p>
+            </FadeIn>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={0.1}>
             {[
               {
                 icon: Video,
@@ -524,16 +533,18 @@ export default function CoursesPage() {
             ].map((feature, index) => {
               const IconComponent = feature.icon
               return (
-                <div key={index} className="group text-center">
+                <StaggerItem key={index}>
+                  <div className="group text-center">
                   <div className={`w-20 h-20 bg-${feature.color}-100 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:bg-${feature.color}-200 transition-colors duration-300`}>
                     <IconComponent className={`h-10 w-10 text-${feature.color}-600`} />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-4">{feature.title}</h3>
                   <p className="text-slate-600 font-light leading-relaxed">{feature.description}</p>
                 </div>
+                </StaggerItem>
               )
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -541,11 +552,12 @@ export default function CoursesPage() {
       {/* Why Choose Us */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">Why Choose The Open Book?</h2>
-            <p className="text-xl lg:text-2xl text-slate-600 leading-relaxed font-light mb-12 max-w-4xl mx-auto">
-              Choose from our comprehensive range of English courses - Live Online, Offline Classroom, or Self-Paced Recorded lessons. Start your journey to fluent communication today.
-            </p>
+          <FadeIn delay={0.1} direction="up">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">Why Choose The Open Book?</h2>
+              <p className="text-xl lg:text-2xl text-slate-600 leading-relaxed font-light mb-12 max-w-4xl mx-auto">
+                Choose from our comprehensive range of English courses - Live Online, Offline Classroom, or Self-Paced Recorded lessons. Start your journey to fluent communication today.
+              </p>
 
             {/* Course Type Tabs */}
             <div className="bg-white rounded-3xl shadow-xl shadow-slate-900/10 border border-slate-200/50 p-2 mb-12 max-w-2xl mx-auto">
@@ -615,6 +627,7 @@ export default function CoursesPage() {
               </div>
             </div>
           </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -622,22 +635,25 @@ export default function CoursesPage() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6">
           {filteredCourses.length === 0 ? (
-            <div className="text-center py-20">
-              <div className="w-24 h-24 bg-slate-100 rounded-3xl flex items-center justify-center mx-auto mb-6">
-                <Search className="w-12 h-12 text-slate-400" />
+            <FadeIn delay={0.2} direction="up">
+              <div className="text-center py-20">
+                <div className="w-24 h-24 bg-slate-100 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                  <Search className="w-12 h-12 text-slate-400" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">No courses found</h3>
+                <p className="text-slate-600">Try adjusting your search or filters to find what you're looking for.</p>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">No courses found</h3>
-              <p className="text-slate-600">Try adjusting your search or filters to find what you're looking for.</p>
-            </div>
+            </FadeIn>
           ) : (
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            <StaggerContainer className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8" staggerDelay={0.1}>
               {filteredCourses.map((course) => {
                 const IconComponent = course.icon
                 const isRecorded = course.mode === 'Recorded'
                 const isOffline = course.mode === 'Offline Classroom'
 
                 return (
-                  <div key={course.id} className={`group relative bg-white rounded-3xl border-2 hover:shadow-2xl hover:shadow-slate-900/10 transition-all duration-500 overflow-hidden transform hover:-translate-y-1 ${course.popular
+                  <StaggerItem key={course.id}>
+                    <div className={`group relative bg-white rounded-3xl border-2 hover:shadow-2xl hover:shadow-slate-900/10 transition-all duration-500 overflow-hidden transform hover:-translate-y-1 ${course.popular
                       ? 'border-gradient-to-r from-blue-500 to-violet-500 ring-4 ring-blue-50/50'
                       : 'border-slate-200/50 hover:border-slate-300/50'
                     }`}>
@@ -763,9 +779,10 @@ export default function CoursesPage() {
                       </div>
                     </div>
                   </div>
+                  </StaggerItem>
                 )
               })}
-            </div>
+            </StaggerContainer>
           )}
         </div>
       </section>
@@ -773,14 +790,16 @@ export default function CoursesPage() {
       {/* Learning Paths */}
       <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50/30">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">Recommended Learning Paths</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
-              Follow our structured approach for maximum learning effectiveness based on your goals.
-            </p>
-          </div>
+          <FadeIn delay={0.1} direction="up">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">Recommended Learning Paths</h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
+                Follow our structured approach for maximum learning effectiveness based on your goals.
+              </p>
+            </div>
+          </FadeIn>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" staggerDelay={0.15}>
             {[
               {
                 title: "Complete Beginner Path",
@@ -809,39 +828,41 @@ export default function CoursesPage() {
             ].map((path, index) => {
               const IconComponent = path.icon
               return (
-                <div key={index} className="bg-white rounded-3xl border border-slate-200 p-8 hover:shadow-xl hover:shadow-slate-900/10 transition-all duration-300 group">
-                  <div className={`w-16 h-16 bg-${path.color}-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-${path.color}-200 transition-colors`}>
-                    <IconComponent className={`h-8 w-8 text-${path.color}-600`} />
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4">{path.title}</h3>
-                  <p className="text-slate-600 mb-6 font-light">{path.description}</p>
-
-                  <div className="mb-6">
-                    <div className="flex items-center space-x-2 mb-4">
-                      <Clock className="h-5 w-5 text-slate-500" />
-                      <span className="text-sm text-slate-600 font-medium">{path.duration}</span>
+                <StaggerItem key={index}>
+                  <div className="bg-white rounded-3xl border border-slate-200 p-8 hover:shadow-xl hover:shadow-slate-900/10 transition-all duration-300 group">
+                    <div className={`w-16 h-16 bg-${path.color}-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-${path.color}-200 transition-colors`}>
+                      <IconComponent className={`h-8 w-8 text-${path.color}-600`} />
                     </div>
 
-                    <div className="space-y-3">
-                      {path.steps.map((step, stepIndex) => (
-                        <div key={stepIndex} className="flex items-center space-x-3">
-                          <div className={`w-8 h-8 bg-${path.color}-100 text-${path.color}-600 rounded-full flex items-center justify-center text-sm font-bold`}>
-                            {stepIndex + 1}
+                    <h3 className="text-2xl font-bold text-slate-900 mb-4">{path.title}</h3>
+                    <p className="text-slate-600 mb-6 font-light">{path.description}</p>
+
+                    <div className="mb-6">
+                      <div className="flex items-center space-x-2 mb-4">
+                        <Clock className="h-5 w-5 text-slate-500" />
+                        <span className="text-sm text-slate-600 font-medium">{path.duration}</span>
+                      </div>
+
+                      <div className="space-y-3">
+                        {path.steps.map((step, stepIndex) => (
+                          <div key={stepIndex} className="flex items-center space-x-3">
+                            <div className={`w-8 h-8 bg-${path.color}-100 text-${path.color}-600 rounded-full flex items-center justify-center text-sm font-bold`}>
+                              {stepIndex + 1}
+                            </div>
+                            <span className="text-slate-700 font-medium">{step}</span>
                           </div>
-                          <span className="text-slate-700 font-medium">{step}</span>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
 
-                  <button className={`w-full bg-${path.color}-600 text-white py-3 px-6 rounded-2xl font-semibold hover:bg-${path.color}-700 transition-colors duration-200`}>
-                    Start This Path
-                  </button>
-                </div>
+                    <button className={`w-full bg-${path.color}-600 text-white py-3 px-6 rounded-2xl font-semibold hover:bg-${path.color}-700 transition-colors duration-200`}>
+                      Start This Path
+                    </button>
+                  </div>
+                </StaggerItem>
               )
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -849,16 +870,19 @@ export default function CoursesPage() {
       {/* Student Success Stories */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">Student Success Stories</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
-              Real achievements from real students who transformed their communication skills with us.
-            </p>
-          </div>
+          <FadeIn delay={0.1} direction="up">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">Student Success Stories</h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
+                Real achievements from real students who transformed their communication skills with us.
+              </p>
+            </div>
+          </FadeIn>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={0.1}>
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gradient-to-br from-slate-50 to-white rounded-3xl border border-slate-200 p-8 text-center hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 group">
+              <StaggerItem key={index}>
+                <div className="bg-gradient-to-br from-slate-50 to-white rounded-3xl border border-slate-200 p-8 text-center hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 group">
                 <div className="w-20 h-20 bg-gradient-to-br from-blue-500 via-violet-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl shadow-lg">
                   {testimonial.initials}
                 </div>
@@ -880,8 +904,9 @@ export default function CoursesPage() {
                   <p className="text-sm text-blue-600 font-semibold">{testimonial.course}</p>
                 </div>
               </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -896,7 +921,7 @@ export default function CoursesPage() {
           </div>
 
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-            <div className="space-y-8">
+            <StaggerContainer className="space-y-8" staggerDelay={0.1}>
               {[
                 {
                   question: "What's the difference between live and recorded courses?",
@@ -915,14 +940,16 @@ export default function CoursesPage() {
                   answer: "We maintain small batch sizes (8-25 students) depending on the course to ensure personalized attention and effective learning."
                 }
               ].map((faq, index) => (
-                <div key={index} className="bg-white rounded-3xl p-8 border border-slate-200 hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 group">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-900 transition-colors">{faq.question}</h3>
-                  <p className="text-slate-600 font-light leading-relaxed">{faq.answer}</p>
-                </div>
+                <StaggerItem key={index}>
+                  <div className="bg-white rounded-3xl p-8 border border-slate-200 hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 group">
+                    <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-900 transition-colors">{faq.question}</h3>
+                    <p className="text-slate-600 font-light leading-relaxed">{faq.answer}</p>
+                  </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
 
-            <div className="space-y-8">
+            <StaggerContainer className="space-y-8" staggerDelay={0.15}>
               {[
                 {
                   question: "What is your refund policy?",
@@ -941,12 +968,14 @@ export default function CoursesPage() {
                   answer: "Yes, we offer flexible payment options and installment plans. Contact our support team to discuss payment arrangements."
                 }
               ].map((faq, index) => (
-                <div key={index} className="bg-white rounded-3xl p-8 border border-slate-200 hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 group">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-900 transition-colors">{faq.question}</h3>
-                  <p className="text-slate-600 font-light leading-relaxed">{faq.answer}</p>
-                </div>
+                <StaggerItem key={index}>
+                  <div className="bg-white rounded-3xl p-8 border border-slate-200 hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 group">
+                    <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-900 transition-colors">{faq.question}</h3>
+                    <p className="text-slate-600 font-light leading-relaxed">{faq.answer}</p>
+                  </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </div>
       </section>
@@ -960,41 +989,53 @@ export default function CoursesPage() {
 
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl lg:text-6xl font-bold mb-8">
-              Ready to Transform Your
-              <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent"> Communication?</span>
-            </h2>
+            <FadeIn delay={0.1} direction="up">
+              <h2 className="text-4xl lg:text-6xl font-bold mb-8">
+                Ready to Transform Your
+                <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent"> Communication?</span>
+              </h2>
+            </FadeIn>
 
-            <p className="text-xl lg:text-2xl text-slate-300 mb-12 font-light leading-relaxed">
-              Join thousands of students who have already achieved their English language goals with The Open Book. Start your journey today!
-            </p>
+            <FadeIn delay={0.2} direction="up">
+              <p className="text-xl lg:text-2xl text-slate-300 mb-12 font-light leading-relaxed">
+                Join thousands of students who have already achieved their English language goals with The Open Book. Start your journey today!
+              </p>
+            </FadeIn>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-2xl mx-auto">
-              <button className="group bg-gradient-to-r from-blue-500 via-violet-500 to-emerald-500 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:from-blue-600 hover:via-violet-600 hover:to-emerald-600 transition-all duration-300 flex items-center justify-center shadow-xl shadow-blue-500/25">
-                Explore All Courses
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+            <FadeIn delay={0.3} direction="up">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-2xl mx-auto">
+                <button className="group bg-gradient-to-r from-blue-500 via-violet-500 to-emerald-500 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:from-blue-600 hover:via-violet-600 hover:to-emerald-600 transition-all duration-300 flex items-center justify-center shadow-xl shadow-blue-500/25">
+                  Explore All Courses
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </button>
 
-              <button className="group border-2 border-slate-500 text-slate-300 px-8 py-4 rounded-2xl text-lg font-bold hover:bg-slate-800 hover:border-slate-400 hover:text-white transition-all duration-300 flex items-center justify-center">
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Get Free Consultation
-              </button>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 mt-16 pt-16 border-t border-slate-700">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400 mb-2">5000+</div>
-                <div className="text-slate-400 font-medium">Students Trained</div>
+                <button className="group border-2 border-slate-500 text-slate-300 px-8 py-4 rounded-2xl text-lg font-bold hover:bg-slate-800 hover:border-slate-400 hover:text-white transition-all duration-300 flex items-center justify-center">
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Get Free Consultation
+                </button>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-violet-400 mb-2">10+</div>
-                <div className="text-slate-400 font-medium">Course Options</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-400 mb-2">4.8★</div>
-                <div className="text-slate-400 font-medium">Average Rating</div>
-              </div>
-            </div>
+            </FadeIn>
+
+            <StaggerContainer className="grid md:grid-cols-3 gap-8 mt-16 pt-16 border-t border-slate-700" staggerDelay={0.15}>
+              <StaggerItem>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-400 mb-2">5000+</div>
+                  <div className="text-slate-400 font-medium">Students Trained</div>
+                </div>
+              </StaggerItem>
+              <StaggerItem>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-violet-400 mb-2">10+</div>
+                  <div className="text-slate-400 font-medium">Course Options</div>
+                </div>
+              </StaggerItem>
+              <StaggerItem>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-emerald-400 mb-2">4.8★</div>
+                  <div className="text-slate-400 font-medium">Average Rating</div>
+                </div>
+              </StaggerItem>
+            </StaggerContainer>
           </div>
         </div>
       </section>

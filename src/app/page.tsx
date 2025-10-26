@@ -929,6 +929,10 @@ import { useState, useEffect } from 'react'
 import { Video, Zap, Briefcase, Mic, GraduationCap, MessageSquare, ChevronRight, Star, Users, Award, BookOpen, MessageCircle, Play, CheckCircle, ArrowRight, Phone, Mail, MapPin, Target, Clock, Globe } from 'lucide-react'
 import { LogoCloud } from '@/components/ui/logo-cloud'
 import { cn } from '@/lib/utils'
+import { FadeIn } from '@/components/ui/fade-in'
+import { ScaleIn } from '@/components/ui/scale-in'
+import { StaggerContainer, StaggerItem } from '@/components/ui/stagger-container'
+import { SlideIn } from '@/components/ui/slide-in'
 
 export default function HomePage() {
   const [activeTestimonial, setActiveTestimonial] = useState(0)
@@ -1286,41 +1290,54 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               {/* Enhanced Badge */}
-              <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 px-5 py-3 rounded-full text-sm font-semibold border border-blue-100 shadow-sm">
-                <Award className="w-4 h-4 mr-2" />
-                13+ Years of Excellence in Education
-              </div>
+              <FadeIn delay={0.1} direction="down">
+                <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 px-5 py-3 rounded-full text-sm font-semibold border border-blue-100 shadow-sm">
+                  <Award className="w-4 h-4 mr-2" />
+                  13+ Years of Excellence in Education
+                </div>
+              </FadeIn>
 
               <div className="space-y-6">
-                <h1 className="text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tight">
+                <FadeIn delay={0.2} direction="up">
+                  <h1 className="text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tight">
                   <span className="text-slate-900">Unlock Your</span>{' '}
                   <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
                     Confidence in English
                   </span>
                 </h1>
-                <p className="text-xl lg:text-2xl text-slate-600 leading-relaxed font-light max-w-2xl">
-                  Master English communication, boost confidence, and unlock global opportunities with expert-led courses in Kozhikode, Kerala.
-                </p>
+                </FadeIn>
+                <FadeIn delay={0.3} direction="up">
+                  <p className="text-xl lg:text-2xl text-slate-600 leading-relaxed font-light max-w-2xl">
+                    Master English communication, boost confidence, and unlock global opportunities with expert-led courses in Kozhikode, Kerala.
+                  </p>
+                </FadeIn>
               </div>
 
               {/* Enhanced Stats */}
-              <div className="grid grid-cols-3 gap-8 py-8 border-t border-slate-200">
-                <div className="text-center lg:text-left">
-                  <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{stats.students}+</div>
-                  <div className="text-sm text-slate-600 font-medium">Happy Students</div>
-                </div>
-                <div className="text-center lg:text-left">
-                  <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{stats.experience}+</div>
-                  <div className="text-sm text-slate-600 font-medium">Years Experience</div>
-                </div>
-                <div className="text-center lg:text-left">
-                  <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{stats.courses}+</div>
-                  <div className="text-sm text-slate-600 font-medium">Expert Courses</div>
-                </div>
-              </div>
+              <StaggerContainer className="grid grid-cols-3 gap-8 py-8 border-t border-slate-200" staggerDelay={0.15}>
+                <StaggerItem>
+                  <div className="text-center lg:text-left">
+                    <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{stats.students}+</div>
+                    <div className="text-sm text-slate-600 font-medium">Happy Students</div>
+                  </div>
+                </StaggerItem>
+                <StaggerItem>
+                  <div className="text-center lg:text-left">
+                    <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{stats.experience}+</div>
+                    <div className="text-sm text-slate-600 font-medium">Years Experience</div>
+                  </div>
+                </StaggerItem>
+                <StaggerItem>
+                  <div className="text-center lg:text-left">
+                    <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{stats.courses}+</div>
+                    <div className="text-sm text-slate-600 font-medium">Expert Courses</div>
+                  </div>
+                </StaggerItem>
+              </StaggerContainer>
 
               {/* Enhanced CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <FadeIn delay={0.5} direction="up">
+                <div className="flex flex-col sm:flex-row gap-4">
                 <a href="https://tagmango.com/creator/membership/free" className="group inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                   Start Learning Free
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -1329,10 +1346,12 @@ export default function HomePage() {
                   View Courses
                 </a>
               </div>
+              </FadeIn>
             </div>
 
             {/* Enhanced Hero Visual */}
-            <div className="relative lg:pl-8">
+            <SlideIn direction="right" delay={0.3}>
+              <div className="relative lg:pl-8">
               <div className="relative">
                 {/* Main Dashboard Card */}
                 <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl shadow-blue-500/10 p-8 border border-white/50 relative z-10">
@@ -1478,6 +1497,7 @@ export default function HomePage() {
                 <div className="absolute top-1/2 -left-4 w-8 h-8 bg-gradient-to-br from-blue-500/25 to-indigo-500/25 rounded-xl rotate-45 blur-sm animate-pulse delay-500"></div>
               </div>
             </div>
+            </SlideIn>
           </div>
         </div>
       </section>
@@ -1489,24 +1509,29 @@ export default function HomePage() {
         <div className="absolute bottom-32 left-32 w-80 h-80 bg-gradient-to-tr from-indigo-500/6 to-violet-500/6 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
         <div className="relative max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 px-5 py-3 rounded-full text-sm font-semibold border border-blue-100 shadow-sm mb-6">
-              <Video className="h-4 w-4" />
-              Self-Paced Learning
+          <FadeIn direction="up" delay={0.1}>
+            <div className="text-center mb-16">
+              <ScaleIn delay={0.2}>
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 px-5 py-3 rounded-full text-sm font-semibold border border-blue-100 shadow-sm mb-6">
+                  <Video className="h-4 w-4" />
+                  Self-Paced Learning
+                </div>
+              </ScaleIn>
+              <h2 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent mb-6">
+                Recorded Courses
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+                Master English at your own pace with our comprehensive library of recorded courses designed by expert instructors.
+              </p>
             </div>
-            <h2 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent mb-6">
-              Recorded Courses
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
-              Master English at your own pace with our comprehensive library of recorded courses designed by expert instructors.
-            </p>
-          </div>
+          </FadeIn>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" staggerDelay={0.1}>
             {recordedCourses.map((course, index) => {
               const IconComponent = course.icon;
               return (
-                <div key={index} className="group relative">
+                <StaggerItem key={index}>
+                  <div className="group relative">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                   <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl border border-slate-200/80 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 overflow-hidden">
                     <div className="p-8">
@@ -1543,9 +1568,10 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -1557,25 +1583,30 @@ export default function HomePage() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-violet-400/5 rounded-full blur-2xl animate-pulse delay-1000"></div>
 
         <div className="relative max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-blue-200 px-5 py-3 rounded-full text-sm font-semibold border border-white/20 mb-6">
-              <Users className="h-4 w-4" />
-              Interactive Learning
+          <FadeIn direction="up" delay={0.1}>
+            <div className="text-center mb-16">
+              <ScaleIn delay={0.2}>
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-blue-200 px-5 py-3 rounded-full text-sm font-semibold border border-white/20 mb-6">
+                  <Users className="h-4 w-4" />
+                  Interactive Learning
+                </div>
+              </ScaleIn>
+              <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+                Live Classes & Programs
+              </h2>
+              <p className="text-xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed">
+                Join our interactive live sessions and intensive programs for accelerated learning with expert instructors.
+              </p>
             </div>
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              Live Classes & Programs
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed">
-              Join our interactive live sessions and intensive programs for accelerated learning with expert instructors.
-            </p>
-          </div>
+          </FadeIn>
 
           {/* Live Classes Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16" staggerDelay={0.1}>
             {liveClasses.map((course, index) => {
               const IconComponent = course.icon;
               return (
-                <div key={index} className="group relative">
+                <StaggerItem key={index}>
+                  <div className="group relative">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                   <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-300 p-6">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-white/10">
@@ -1606,21 +1637,25 @@ export default function HomePage() {
                     </button>
                   </div>
                 </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
 
           {/* Intensive Programs */}
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-4">Intensive Programs</h3>
-            <p className="text-blue-100 max-w-2xl mx-auto">Fast-track your learning with our specialized intensive courses and workshops.</p>
-          </div>
+          <FadeIn direction="up" delay={0.2}>
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-white mb-4">Intensive Programs</h3>
+              <p className="text-blue-100 max-w-2xl mx-auto">Fast-track your learning with our specialized intensive courses and workshops.</p>
+            </div>
+          </FadeIn>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto" staggerDelay={0.15}>
             {intensivePrograms.map((program, index) => {
               const IconComponent = program.icon;
               return (
-                <div key={index} className="group relative">
+                <StaggerItem key={index}>
+                  <div className="group relative">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-400 to-orange-400 rounded-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                   <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-300 p-8">
                     <div className="flex items-center gap-4 mb-6">
@@ -1665,9 +1700,10 @@ export default function HomePage() {
                     </button>
                   </div>
                 </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -1677,25 +1713,30 @@ export default function HomePage() {
         <div className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-tr from-blue-500/8 to-indigo-500/8 rounded-full blur-3xl animate-pulse delay-1500"></div>
 
         <div className="relative max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-50 to-purple-50 text-violet-700 px-5 py-3 rounded-full text-sm font-semibold border border-violet-100 shadow-sm mb-6">
-              <Target className="h-4 w-4" />
-              Structured Learning
+          <FadeIn direction="up" delay={0.1}>
+            <div className="text-center mb-16">
+              <ScaleIn delay={0.2}>
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-50 to-purple-50 text-violet-700 px-5 py-3 rounded-full text-sm font-semibold border border-violet-100 shadow-sm mb-6">
+                  <Target className="h-4 w-4" />
+                  Structured Learning
+                </div>
+              </ScaleIn>
+              <h2 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-slate-900 via-violet-900 to-purple-900 bg-clip-text text-transparent mb-6">
+                Your Learning Journey
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+                Follow our carefully designed learning path from foundation to mastery, with clear milestones and achievements.
+              </p>
             </div>
-            <h2 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-slate-900 via-violet-900 to-purple-900 bg-clip-text text-transparent mb-6">
-              Your Learning Journey
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
-              Follow our carefully designed learning path from foundation to mastery, with clear milestones and achievements.
-            </p>
-          </div>
+          </FadeIn>
 
           <div className="relative">
-            <div className="flex flex-col lg:flex-row justify-between items-center space-y-12 lg:space-y-0 lg:space-x-8">
+            <StaggerContainer className="flex flex-col lg:flex-row justify-between items-center space-y-12 lg:space-y-0 lg:space-x-8" staggerDelay={0.15}>
               {learningPath.map((step, index) => {
                 const IconComponent = step.icon;
                 return (
-                  <div key={index} className="relative flex-1 max-w-sm group">
+                  <StaggerItem key={index}>
+                    <div className="relative flex-1 max-w-sm group">
                     <div className="relative">
                       <div className="absolute -inset-0.5 bg-gradient-to-r from-violet-500 to-purple-500 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                       <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-lg shadow-slate-900/10 border border-slate-200/80 p-8 text-center hover:shadow-2xl hover:shadow-violet-500/10 transition-all duration-500">
@@ -1734,9 +1775,10 @@ export default function HomePage() {
                       </div>
                     )}
                   </div>
+                  </StaggerItem>
                 );
               })}
-            </div>
+            </StaggerContainer>
           </div>
         </div>
       </section>
@@ -1754,17 +1796,23 @@ export default function HomePage() {
         />
 
         <div className="relative max-w-7xl mx-auto px-4 md:px-6">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900">
-              <span className="font-bold">Associated with</span>
-            </h2>
-          </div>
+          <FadeIn direction="up" delay={0.1}>
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900">
+                <span className="font-bold">Associated with</span>
+              </h2>
+            </div>
 
-          <div className="mx-auto my-6 md:my-8 h-px max-w-xs md:max-w-md bg-slate-200 [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
+            <div className="mx-auto my-6 md:my-8 h-px max-w-xs md:max-w-md bg-slate-200 [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
+          </FadeIn>
 
-          <LogoCloud logos={associatedLogos} />
+          <FadeIn direction="up" delay={0.3}>
+            <LogoCloud logos={associatedLogos} />
+          </FadeIn>
 
-          <div className="mt-6 md:mt-8 h-px bg-slate-200 [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
+          <FadeIn direction="up" delay={0.4}>
+            <div className="mt-6 md:mt-8 h-px bg-slate-200 [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
+          </FadeIn>
         </div>
 
         {/* Floating background elements */}
@@ -1778,22 +1826,27 @@ export default function HomePage() {
         <div className="absolute bottom-40 left-16 w-72 h-72 bg-indigo-400/10 rounded-full blur-3xl animate-pulse delay-300"></div>
 
         <div className="relative max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-blue-200 px-5 py-3 rounded-full text-sm font-semibold border border-white/20 mb-6">
-              <Award className="h-4 w-4" />
-              Flexible Plans
+          <FadeIn direction="up" delay={0.1}>
+            <div className="text-center mb-16">
+              <ScaleIn delay={0.2}>
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-blue-200 px-5 py-3 rounded-full text-sm font-semibold border border-white/20 mb-6">
+                  <Award className="h-4 w-4" />
+                  Flexible Plans
+                </div>
+              </ScaleIn>
+              <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+                Choose Your Plan
+              </h2>
+              <p className="text-xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed">
+                Select the perfect membership plan that fits your learning goals and budget. All plans include our quality guarantee.
+              </p>
             </div>
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              Choose Your Plan
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed">
-              Select the perfect membership plan that fits your learning goals and budget. All plans include our quality guarantee.
-            </p>
-          </div>
+          </FadeIn>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto ">
+          <StaggerContainer className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" staggerDelay={0.15}>
             {memberships.map((plan, index) => (
-              <div key={index} className={`relative group ${plan.popular ? 'scale-105' : ''}`}>
+              <StaggerItem key={index}>
+                <div className={`relative group ${plan.popular ? 'scale-105' : ''}`}>
                 <div className={`absolute -inset-0.5 bg-gradient-to-r rounded-3xl transition-opacity duration-300 ${plan.popular
                     ? 'from-amber-400 to-orange-400 opacity-30'
                     : 'from-blue-400 to-indigo-400 opacity-0 group-hover:opacity-20'
@@ -1837,14 +1890,17 @@ export default function HomePage() {
                   </button>
                 </div>
               </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
-          <div className="text-center mt-12">
-            <p className="text-blue-200 text-sm">
-              All plans include 7-day free trial • Cancel anytime • 30-day money-back guarantee
-            </p>
-          </div>
+          <FadeIn direction="up" delay={0.6}>
+            <div className="text-center mt-12">
+              <p className="text-blue-200 text-sm">
+                All plans include 7-day free trial • Cancel anytime • 30-day money-back guarantee
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 

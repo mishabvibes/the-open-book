@@ -2,6 +2,10 @@
 
 import { useState } from 'react'
 import { BookOpen, Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageCircle, Users, Calendar, ArrowRight, Globe, Facebook, Instagram, Youtube, Twitter, Star } from 'lucide-react'
+import { FadeIn } from '@/components/ui/fade-in'
+import { ScaleIn } from '@/components/ui/scale-in'
+import { StaggerContainer, StaggerItem } from '@/components/ui/stagger-container'
+import { SlideIn } from '@/components/ui/slide-in'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -125,20 +129,27 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-violet-50/50"></div>
         <div className="relative max-w-7xl mx-auto px-6 py-20 lg:py-32">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium mb-8">
-              <MessageCircle className="w-4 h-4 mr-2" />
-              We're Here to Help
-            </div>
-            <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6">
-              <span className="text-slate-900">Get in</span>{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
-                Touch
-              </span>
-            </h1>
-            <p className="text-xl lg:text-2xl text-slate-600 leading-relaxed font-light mb-12">
-              Ready to transform your communication skills? We're here to guide you every step of the way.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <FadeIn delay={0.1} direction="down">
+              <div className="inline-flex items-center bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium mb-8">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                We're Here to Help
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.2} direction="up">
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6">
+                <span className="text-slate-900">Get in</span>{' '}
+                <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+                  Touch
+                </span>
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.3} direction="up">
+              <p className="text-xl lg:text-2xl text-slate-600 leading-relaxed font-light mb-12">
+                Ready to transform your communication skills? We're here to guide you every step of the way.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.4} direction="up">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://tagmango.com/creator/membership/free" className="group inline-flex items-center justify-center bg-slate-900 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-slate-800 transition-all duration-200">
                 Start Learning Free
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -148,6 +159,7 @@ export default function ContactPage() {
                 Call Now
               </a>
             </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -155,11 +167,12 @@ export default function ContactPage() {
       {/* Contact Info Cards */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={0.1}>
             {contactInfo.map((info, index) => {
               const IconComponent = info.icon
               return (
-                <div key={index} className="group bg-white rounded-3xl border border-slate-200 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 overflow-hidden">
+                <StaggerItem key={index}>
+                  <div className="group bg-white rounded-3xl border border-slate-200 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 overflow-hidden">
                   <div className="p-8">
                     <div className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-50 transition-colors">
                       <IconComponent className="h-7 w-7 text-slate-600 group-hover:text-blue-600" />
@@ -176,9 +189,10 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
+                </StaggerItem>
               )
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -187,7 +201,8 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Form */}
-            <div>
+            <SlideIn direction="left" delay={0.2}>
+              <div>
               <div className="bg-white rounded-3xl shadow-2xl shadow-slate-900/10 p-8 lg:p-12 border border-slate-200/50">
                 <div className="text-center mb-8">
                   <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Send us a Message</h2>
@@ -307,9 +322,11 @@ export default function ContactPage() {
                 )}
               </div>
             </div>
+            </SlideIn>
 
             {/* Contact Info Sidebar */}
-            <div className="space-y-8">
+            <SlideIn direction="right" delay={0.3}>
+              <div className="space-y-8">
               {/* Quick Contact */}
               <div className="bg-slate-900 rounded-3xl p-8 text-white">
                 <h3 className="text-2xl font-bold mb-6">Quick Contact</h3>
@@ -402,6 +419,7 @@ export default function ContactPage() {
                 </div>
               </div> */}
             </div>
+            </SlideIn>
           </div>
         </div>
       </section>
@@ -467,20 +485,26 @@ export default function ContactPage() {
       {/* CTA Section */}
       <section className="py-24 bg-slate-900">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">Ready to Transform Your Future?</h2>
-          <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto font-light">
-            Don't wait another day to unlock your potential. Contact us now and take the first step towards transforming your communication skills.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a href="https://tagmango.com/creator/membership/free" className="inline-flex items-center justify-center bg-white text-slate-900 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-slate-100 transition-all duration-200 group">
-              Start Free Today
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a href="tel:+919876543210" className="inline-flex items-center justify-center border border-slate-600 text-slate-300 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-slate-800 hover:border-slate-500 transition-all duration-200">
-              <Phone className="mr-2 h-5 w-5" />
-              Call Now
-            </a>
-          </div>
+          <FadeIn delay={0.1} direction="up">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">Ready to Transform Your Future?</h2>
+          </FadeIn>
+          <FadeIn delay={0.2} direction="up">
+            <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto font-light">
+              Don't wait another day to unlock your potential. Contact us now and take the first step towards transforming your communication skills.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.3} direction="up">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <a href="https://tagmango.com/creator/membership/free" className="inline-flex items-center justify-center bg-white text-slate-900 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-slate-100 transition-all duration-200 group">
+                Start Free Today
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a href="tel:+919876543210" className="inline-flex items-center justify-center border border-slate-600 text-slate-300 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-slate-800 hover:border-slate-500 transition-all duration-200">
+                <Phone className="mr-2 h-5 w-5" />
+                Call Now
+              </a>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </div>
