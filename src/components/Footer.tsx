@@ -210,7 +210,7 @@ export default function Footer() {
         </div>
 
         {/* Scroll to Top Button */}
-        <button
+        {/* <button
           onClick={scrollToTop}
           className={`fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
             showScrollTop ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
@@ -218,8 +218,7 @@ export default function Footer() {
           aria-label="Scroll to top"
         >
           <ArrowUp className="h-5 w-5" />
-          {/* <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-75"></div> */}
-        </button>
+        </button> */}
       </footer>
     </>
   )

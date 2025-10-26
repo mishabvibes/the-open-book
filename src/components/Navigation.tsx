@@ -15,6 +15,7 @@ export default function UniversalNavigation() {
     if (pathname === '/about') return 'about'
     if (pathname === '/courses') return 'courses'
     if (pathname === '/contact') return 'contact'
+    if (pathname === '/placement-test') return 'placement-test'
     return 'home'
   }
   
@@ -40,6 +41,8 @@ export default function UniversalNavigation() {
     { icon: BookOpenCheck, label: 'Courses', href: '/courses', id: 'courses' },
     { icon: MessageCircle, label: 'Contact', href: '/contact', id: 'contact' },
   ]
+
+  const placementTestItem = { icon: BookOpen, label: 'Placement Test', href: '/placement-test', id: 'placement-test' }
 
   // Clean universal theme - works on any background
   const getThemeClasses = () => {
@@ -94,23 +97,23 @@ export default function UniversalNavigation() {
               ))}
               
               {/* Elegant Separator */}
-              {/* <div className={`my-2 mx-3 h-px ${theme.separator} opacity-30`}></div> */}
+              <div className={`my-2 mx-3 h-px ${theme.separator} opacity-30`}></div>
               
-              {/* Enhanced CTA Button */}
+              {/* Placement Test CTA Button */}
               <div className="relative group">
-                {/* <a
-                  href="https://tagmango.com/creator/membership/free"
-                  className={`relative flex items-center justify-center w-12 h-12 ${theme.ctaButton} text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5 group`}
-                  aria-label="Join Free"
+                <a
+                  href="/placement-test"
+                  className={`relative flex items-center justify-center w-12 h-12 ${activeSection === 'placement-test' ? theme.ctaButton : 'bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700'} text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25 hover:-translate-y-0.5 group`}
+                  aria-label="Take Test"
                 >
-                  <Plus className="h-5 w-5 transition-transform duration-300 group-hover:rotate-90" />
+                  <placementTestItem.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
                   
-                  
+                  {/* Tooltip */}
                   <div className="absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap border border-gray-700 shadow-lg">
-                    Join Free
+                    Placement Test
                     <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900"></div>
                   </div>
-                </a> */}
+                </a>
               </div>
             </div>
           </div>
@@ -165,18 +168,18 @@ export default function UniversalNavigation() {
             {/* Elegant Separator */}
             <div className={`mx-2 w-px h-6 ${theme.separator} opacity-30`}></div>
             
-            {/* CTA Button */}
+            {/* Placement Test Button */}
             <div className="relative group">
               <a
-                href="https://tagmango.com/creator/membership/free"
-                className={`relative flex items-center justify-center w-11 h-11 ${theme.ctaButton} text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5 group`}
-                aria-label="Join Free"
+                href="/placement-test"
+                className={`relative flex items-center justify-center w-11 h-11 ${activeSection === 'placement-test' ? theme.ctaButton : 'bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700'} text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25 hover:-translate-y-0.5 group`}
+                aria-label="Placement Test"
               >
-                <Plus className="h-4 w-4 transition-transform duration-300 group-hover:rotate-90" />
+                <placementTestItem.icon className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
                 
                 {/* Tooltip */}
                 <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap border border-gray-700 shadow-lg">
-                  Join Free
+                  Take Test
                   <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
                 </div>
               </a>
@@ -187,8 +190,8 @@ export default function UniversalNavigation() {
 
       {/* Mobile Navigation */}
       <div className="md:hidden">
-        {/* Mobile Header */}
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        {/* Mobile Header - HIDDEN */}
+        <header className={`hidden fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
             ? 'bg-white/98 backdrop-blur-xl border-b border-gray-200/60 shadow-lg' 
             : 'bg-white/95 backdrop-blur-sm border-b border-gray-200/40'
@@ -215,8 +218,8 @@ export default function UniversalNavigation() {
           </div>
         </header>
 
-        {/* Enhanced Mobile Menu Overlay */}
-        <div className={`fixed inset-0 z-40 transition-all duration-300 ${
+        {/* Enhanced Mobile Menu Overlay - HIDDEN */}
+        <div className={`hidden fixed inset-0 z-40 transition-all duration-300 ${
           isMobileMenuOpen 
             ? 'bg-black/20 backdrop-blur-sm opacity-100' 
             : 'opacity-0 pointer-events-none'
@@ -251,16 +254,16 @@ export default function UniversalNavigation() {
                 </a>
               ))}
               
-              {/* <div className="pt-4 border-t border-gray-100">
+              <div className="pt-4 border-t border-gray-100">
                 <a
-                  href="https://tagmango.com/creator/membership/free"
-                  className={`flex items-center justify-center space-x-2 w-full p-4 ${theme.ctaButton} text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300 group`}
+                  href="/placement-test"
+                  className={`flex items-center justify-center space-x-2 w-full p-4 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300 group`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <Plus className="h-5 w-5 group-hover:rotate-90 transition-transform duration-300" />
-                  <span>Join Free Today</span>
+                  <placementTestItem.icon className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                  <span>Take Placement Test</span>
                 </a>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
@@ -297,22 +300,22 @@ export default function UniversalNavigation() {
                 </a>
               ))}
 
-              {/* Enhanced Floating Action Button */}
-              {/* <a
-                href="https://tagmango.com/creator/membership/free"
-                className={`group relative p-3 ${theme.ctaButton} rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 active:scale-95`}
-                aria-label="Join Free"
+              {/* Placement Test Floating Button */}
+              <a
+                href="/placement-test"
+                className={`group relative p-3 ${activeSection === 'placement-test' ? 'bg-gradient-to-r from-blue-600 to-indigo-600' : 'bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700'} rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 active:scale-95`}
+                aria-label="Placement Test"
               >
-                <Plus className="h-5 w-5 text-white group-hover:rotate-90 transition-transform duration-300" />
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-              </a> */}
+                <placementTestItem.icon className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-green-600 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+              </a>
             </div>
           </div>
         </nav>
       </div>
 
-      {/* Spacer for mobile content */}
-      <div className="md:hidden h-16"></div>
+      {/* Spacer for mobile content - NOT NEEDED */}
+      {/* <div className="md:hidden h-16"></div> */}
 
       <style jsx>{`
         @keyframes slideIn {

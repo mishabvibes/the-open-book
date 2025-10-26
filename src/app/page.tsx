@@ -1820,6 +1820,168 @@ export default function HomePage() {
         <div className="hidden md:block absolute bottom-20 right-20 w-80 h-80 bg-violet-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </section>
 
+      {/* Placement Test CTA Section */}
+      <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-br from-blue-50 via-indigo-50/30 to-violet-50 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-gradient-to-br from-blue-200/30 to-blue-200/30 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-56 sm:w-72 md:w-80 h-56 sm:h-72 md:h-80 bg-gradient-to-tl from-blue-200/30 to-blue-200/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-center">
+            {/* Left Side - Content */}
+            <FadeIn delay={0.1} direction="left">
+              <div className="space-y-4 sm:space-y-5 md:space-y-6">
+                <div className="inline-flex items-center bg-white/80 backdrop-blur-sm border-2 border-emerald-200 text-emerald-700 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-bold mb-2 sm:mb-3 md:mb-4 shadow-lg">
+                  <Award className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2 flex-shrink-0" />
+                  <span className="whitespace-nowrap">Free CEFR Assessment</span>
+                </div>
+                
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                  <span className="text-slate-900">Discover Your</span>{' '}
+                  <span className="bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text text-transparent">
+                    English Level
+                  </span>
+                </h2>
+                
+                <p className="text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed font-light">
+                  Take our professional 25-question placement test and receive instant results with personalized course recommendations based on your CEFR level (A1-C2).
+                </p>
+
+                {/* Features */}
+                <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4 py-4 sm:py-5 md:py-6">
+                  {[
+                    { icon: Clock, text: '15-20 Minutes', color: 'from-blue-500 to-cyan-500' },
+                    { icon: Target, text: '25 Questions', color: 'from-purple-500 to-pink-500' },
+                    { icon: Award, text: 'Instant Results', color: 'from-orange-500 to-red-500' },
+                    { icon: BookOpen, text: 'CEFR Certified', color: 'from-green-500 to-emerald-500' }
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center space-x-2 sm:space-x-3 bg-white/80 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-slate-200 hover:shadow-lg transition-all duration-300">
+                      <div className={`w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                        <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                      </div>
+                      <span className="text-xs sm:text-sm font-semibold text-slate-900">{feature.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
+                  <a
+                    href="/placement-test"
+                    className="group inline-flex items-center justify-center bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 text-white px-6 sm:px-8 py-4 sm:py-5 rounded-xl sm:rounded-2xl text-base sm:text-lg font-bold hover:from-emerald-700 hover:via-green-700 hover:to-teal-700 transition-all duration-300 shadow-2xl shadow-emerald-500/30 hover:shadow-emerald-500/50 hover:-translate-y-1"
+                  >
+                    <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 mr-2 flex-shrink-0" />
+                    <span className="whitespace-nowrap">Start Free Test</span>
+                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                  </a>
+                  <a
+                    href="/courses"
+                    className="inline-flex items-center justify-center border-2 border-slate-700 text-slate-700 px-6 sm:px-8 py-4 sm:py-5 rounded-xl sm:rounded-2xl text-base sm:text-lg font-semibold hover:bg-slate-700 hover:text-white transition-all duration-300"
+                  >
+                    View All Courses
+                  </a>
+                </div>
+
+                {/* Trust Indicators */}
+                <div className="flex flex-col xs:flex-row items-start xs:items-center gap-4 sm:gap-6 md:gap-8 pt-4 sm:pt-6 border-t border-slate-300">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="flex -space-x-2">
+                      {[1, 2, 3, 4].map((i) => (
+                        <div key={i} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-500 to-violet-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+                          {i}k
+                        </div>
+                      ))}
+                    </div>
+                    <div>
+                      <p className="text-xs sm:text-sm font-bold text-slate-900">5000+ Students</p>
+                      <p className="text-xs text-slate-600">Already tested</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="flex">
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
+                    <div>
+                      <p className="text-xs sm:text-sm font-bold text-slate-900">4.9/5 Rating</p>
+                      <p className="text-xs text-slate-600">Highly accurate</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Right Side - Visual */}
+            <ScaleIn delay={0.3}>
+              <div className="relative mt-8 lg:mt-0">
+                {/* Main Card */}
+                <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border-2 border-slate-200 p-4 sm:p-6 md:p-8 lg:p-10 relative z-10">
+                  {/* Sample Question Preview */}
+                  <div className="space-y-4 sm:space-y-5 md:space-y-6">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="inline-flex items-center bg-gradient-to-r from-emerald-100 to-green-100 text-emerald-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold">
+                        Sample Question
+                      </span>
+                      <span className="text-xs sm:text-sm font-semibold text-slate-500 whitespace-nowrap">Level: B1</span>
+                    </div>
+                    
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 leading-relaxed">
+                      If I _____ more time, I would travel the world.
+                    </h3>
+                    
+                    <div className="space-y-2 sm:space-y-3">
+                      {['have', 'had', 'having', 'has'].map((option, index) => (
+                        <div
+                          key={index}
+                          className={`p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 transition-all duration-200 ${
+                            index === 1
+                              ? 'border-emerald-500 bg-emerald-50'
+                              : 'border-slate-200 bg-slate-50'
+                          }`}
+                        >
+                          <div className="flex items-center">
+                            <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0 ${
+                              index === 1
+                                ? 'border-emerald-500 bg-emerald-500'
+                                : 'border-slate-300'
+                            }`}>
+                              {index === 1 && <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-white" />}
+                            </div>
+                            <span className={`text-sm sm:text-base font-medium ${
+                              index === 1 ? 'text-emerald-900' : 'text-slate-700'
+                            }`}>
+                              {option}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Progress Bar */}
+                    <div className="pt-4 sm:pt-6">
+                      <div className="flex justify-between text-xs sm:text-sm font-semibold text-slate-700 mb-2">
+                        <span>Question 11 of 25</span>
+                        <span className="text-emerald-600">44% Complete</span>
+                      </div>
+                      <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-emerald-600 to-green-600 rounded-full transition-all duration-300" style={{ width: '44%' }}></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Elements */}
+                <div className="hidden md:block absolute -top-4 lg:-top-6 -right-4 lg:-right-6 w-24 h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl lg:rounded-3xl opacity-20 rotate-12 animate-pulse"></div>
+                <div className="hidden md:block absolute -bottom-4 lg:-bottom-6 -left-4 lg:-left-6 w-20 h-20 lg:w-28 lg:h-28 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-2xl lg:rounded-3xl opacity-20 -rotate-12 animate-pulse delay-500"></div>
+              </div>
+            </ScaleIn>
+          </div>
+        </div>
+      </section>
+
       {/* Enhanced Membership Plans Section */}
       <section className="relative py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
         <div className="absolute top-40 right-16 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-700"></div>
