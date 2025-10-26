@@ -1,6 +1,28 @@
 import { BookOpen, Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageCircle, Users, Calendar, ArrowRight, Globe, Facebook, Instagram, Youtube, Twitter, Star } from 'lucide-react'
 import { FadeIn, ScaleIn, StaggerContainer, StaggerItem, SlideIn } from '@/components/client/AnimatedWrapper'
 import { ContactForm } from '@/components/client/ContactForm'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact Us - Get In Touch for English Training in Kozhikode',
+  description: 'Contact The Open Book for English communication training in Kozhikode. Call +91 88934 67437, visit us in Meenchanda, or book a free consultation online.',
+  keywords: [
+    'Contact English institute Kozhikode',
+    'English classes near me',
+    'IELTS coaching contact',
+    'Book English course consultation',
+    'English training Meenchanda Kozhikode'
+  ],
+  openGraph: {
+    title: 'Contact The Open Book - English Training Kozhikode',
+    description: 'Get in touch for expert English communication training. Free consultation available.',
+    url: 'https://theopenbookhira.com/contact',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://theopenbookhira.com/contact',
+  },
+}
 
 export default function ContactPage() {
   // All data is server-side, form state is in ContactForm client component

@@ -253,3 +253,4 @@ export function HeroSection({ initialStats }: HeroSectionProps) {
   )
 }
 
+

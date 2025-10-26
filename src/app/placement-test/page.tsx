@@ -1,13 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { GraduationCap, Award, CheckCircle, Clock, Star, TrendingUp, Shield, MessageCircle, Mail, User, Phone, ArrowRight, ArrowLeft, RefreshCw, Target, BookOpen, Users } from 'lucide-react'
+import { GraduationCap, Award, CheckCircle, Clock, Star, TrendingUp, Shield, MessageCircle, Mail, User, Phone, ArrowRight, ArrowLeft, RefreshCw, Target, BookOpen, Users, Loader2 } from 'lucide-react'
 import { FadeIn } from '@/components/ui/fade-in'
 import { ScaleIn } from '@/components/ui/scale-in'
 
-// CEFR Test Questions (25 questions, progressively harder)
-const testQuestions = [
-  // A1 Level Questions (1-5)
+// Fallback CEFR Test Questions - 12 questions (used if API fails)
+const fallbackQuestions = [
+  // A1 Level Questions (1-2)
   {
     id: 1,
     level: 'A1',
@@ -18,179 +18,86 @@ const testQuestions = [
   {
     id: 2,
     level: 'A1',
-    question: 'How _____ you?',
-    options: ['is', 'am', 'are', 'be'],
-    correctAnswer: 2
-  },
-  {
-    id: 3,
-    level: 'A1',
-    question: 'This is _____ book.',
-    options: ['a', 'an', 'the', 'one'],
-    correctAnswer: 0
-  },
-  {
-    id: 4,
-    level: 'A1',
-    question: 'I _____ from India.',
-    options: ['am', 'is', 'are', 'be'],
-    correctAnswer: 0
-  },
-  {
-    id: 5,
-    level: 'A1',
     question: 'She _____ a teacher.',
     options: ['am', 'is', 'are', 'be'],
     correctAnswer: 1
   },
 
-  // A2 Level Questions (6-10)
+  // A2 Level Questions (3-4)
   {
-    id: 6,
+    id: 3,
     level: 'A2',
     question: 'I _____ to school every day.',
     options: ['go', 'goes', 'going', 'went'],
     correctAnswer: 0
   },
   {
-    id: 7,
-    level: 'A2',
-    question: 'They _____ watching TV now.',
-    options: ['is', 'am', 'are', 'be'],
-    correctAnswer: 2
-  },
-  {
-    id: 8,
+    id: 4,
     level: 'A2',
     question: 'Yesterday, I _____ to the market.',
     options: ['go', 'goes', 'went', 'going'],
     correctAnswer: 2
   },
-  {
-    id: 9,
-    level: 'A2',
-    question: 'There _____ many students in the class.',
-    options: ['is', 'are', 'was', 'am'],
-    correctAnswer: 1
-  },
-  {
-    id: 10,
-    level: 'A2',
-    question: 'She is _____ than her sister.',
-    options: ['tall', 'taller', 'tallest', 'more tall'],
-    correctAnswer: 1
-  },
 
-  // B1 Level Questions (11-15)
+  // B1 Level Questions (5-7)
   {
-    id: 11,
+    id: 5,
     level: 'B1',
     question: 'If I _____ more time, I would travel the world.',
     options: ['have', 'had', 'having', 'has'],
     correctAnswer: 1
   },
   {
-    id: 12,
+    id: 6,
     level: 'B1',
     question: 'The report _____ by the manager tomorrow.',
     options: ['will submit', 'will be submitted', 'is submitting', 'submits'],
     correctAnswer: 1
   },
   {
-    id: 13,
+    id: 7,
     level: 'B1',
     question: 'I have been working here _____ five years.',
     options: ['since', 'for', 'from', 'during'],
     correctAnswer: 1
   },
-  {
-    id: 14,
-    level: 'B1',
-    question: 'She suggested _____ to the new restaurant.',
-    options: ['to go', 'going', 'go', 'went'],
-    correctAnswer: 1
-  },
-  {
-    id: 15,
-    level: 'B1',
-    question: 'The movie _____ we watched yesterday was amazing.',
-    options: ['who', 'which', 'what', 'where'],
-    correctAnswer: 1
-  },
 
-  // B2 Level Questions (16-20)
+  // B2 Level Questions (8-10)
   {
-    id: 16,
+    id: 8,
     level: 'B2',
     question: 'By this time next year, I _____ my degree.',
     options: ['will complete', 'will have completed', 'am completing', 'have completed'],
     correctAnswer: 1
   },
   {
-    id: 17,
-    level: 'B2',
-    question: 'The project, _____ was supposed to be finished last month, is still ongoing.',
-    options: ['that', 'which', 'who', 'what'],
-    correctAnswer: 1
-  },
-  {
-    id: 18,
+    id: 9,
     level: 'B2',
     question: '_____ the heavy rain, we decided to go hiking.',
     options: ['Despite', 'Although', 'However', 'Because'],
     correctAnswer: 0
   },
   {
-    id: 19,
-    level: 'B2',
-    question: 'Had I known about the traffic, I _____ earlier.',
-    options: ['would leave', 'would have left', 'will leave', 'left'],
-    correctAnswer: 1
-  },
-  {
-    id: 20,
+    id: 10,
     level: 'B2',
     question: 'She is capable _____ handling complex situations.',
     options: ['to', 'of', 'with', 'in'],
     correctAnswer: 1
   },
 
-  // C1 Level Questions (21-23)
+  // C1 Level Questions (11-12)
   {
-    id: 21,
+    id: 11,
     level: 'C1',
     question: 'The committee\'s decision was _____ on insufficient evidence.',
     options: ['based', 'founded', 'grounded', 'predicated'],
     correctAnswer: 3
   },
   {
-    id: 22,
+    id: 12,
     level: 'C1',
     question: '_____ his objections, the proposal was approved unanimously.',
     options: ['Notwithstanding', 'Despite of', 'In spite', 'Regardless'],
-    correctAnswer: 0
-  },
-  {
-    id: 23,
-    level: 'C1',
-    question: 'The research _____ new insights into cognitive development.',
-    options: ['yielded', 'produced', 'generated', 'manifested'],
-    correctAnswer: 0
-  },
-
-  // C2 Level Questions (24-25)
-  {
-    id: 24,
-    level: 'C2',
-    question: 'The author\'s _____ prose style belies the complexity of her arguments.',
-    options: ['pellucid', 'turbid', 'abstruse', 'recondite'],
-    correctAnswer: 0
-  },
-  {
-    id: 25,
-    level: 'C2',
-    question: 'His _____ for ancient literature was evident in every lecture.',
-    options: ['predilection', 'aversion', 'indifference', 'antipathy'],
     correctAnswer: 0
   }
 ]
@@ -235,7 +142,16 @@ const cefrLevels = {
   }
 }
 
-type Step = 'welcome' | 'registration' | 'test' | 'results'
+type Step = 'welcome' | 'registration' | 'loading' | 'test' | 'results'
+
+interface Question {
+  id: number
+  level: string
+  question: string
+  options: string[]
+  correctAnswer: number
+  explanation?: string
+}
 
 export default function PlacementTestPage() {
   const [currentStep, setCurrentStep] = useState<Step>('welcome')
@@ -244,8 +160,10 @@ export default function PlacementTestPage() {
     email: '',
     whatsapp: ''
   })
+  const [testQuestions, setTestQuestions] = useState<Question[]>(fallbackQuestions)
+  const [isLoadingQuestions, setIsLoadingQuestions] = useState(false)
   const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [answers, setAnswers] = useState<number[]>(Array(25).fill(-1))
+  const [answers, setAnswers] = useState<number[]>(Array(12).fill(-1))
   const [timeStarted, setTimeStarted] = useState<number>(0)
   const [result, setResult] = useState<{
     score: number
@@ -260,8 +178,36 @@ export default function PlacementTestPage() {
     })
   }
 
-  const startTest = () => {
+  const startTest = async () => {
     if (formData.name && formData.email && formData.whatsapp) {
+      setCurrentStep('loading')
+      setIsLoadingQuestions(true)
+
+      try {
+        // Generate unique student ID
+        const studentId = `${Date.now()}-${Math.random().toString(36).substring(7)}`
+
+        // Fetch unique questions from Gemini API
+        const response = await fetch('/api/generate-questions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ studentId, formData })
+        })
+
+        if (response.ok) {
+          const data = await response.json()
+          setTestQuestions(data.questions)
+          console.log('✅ Generated unique questions for student:', studentId)
+        } else {
+          console.warn('⚠️ API failed, using fallback questions')
+          setTestQuestions(fallbackQuestions)
+        }
+      } catch (error) {
+        console.error('❌ Error fetching questions:', error)
+        setTestQuestions(fallbackQuestions)
+      }
+
+      setIsLoadingQuestions(false)
       setCurrentStep('test')
       setTimeStarted(Date.now())
     }
@@ -274,7 +220,7 @@ export default function PlacementTestPage() {
   }
 
   const nextQuestion = () => {
-    if (currentQuestion < 24) {
+    if (currentQuestion < 11) {
       setCurrentQuestion(currentQuestion + 1)
     }
   }
@@ -293,15 +239,15 @@ export default function PlacementTestPage() {
       }
     })
 
-    const percentage = (correctCount / 25) * 100
+    const percentage = (correctCount / 12) * 100
     let level = 'A1'
 
-    if (percentage >= 92) level = 'C2'
-    else if (percentage >= 84) level = 'C1'
-    else if (percentage >= 68) level = 'B2'
-    else if (percentage >= 52) level = 'B1'
-    else if (percentage >= 36) level = 'A2'
-    else level = 'A1'
+    // Adjusted scoring for 12 questions
+    if (percentage >= 92) level = 'C1'      // 11-12 correct
+    else if (percentage >= 75) level = 'B2' // 9-10 correct
+    else if (percentage >= 58) level = 'B1' // 7-8 correct
+    else if (percentage >= 42) level = 'A2' // 5-6 correct
+    else level = 'A1'                       // 0-4 correct
 
     const timeTaken = Math.round((Date.now() - timeStarted) / 1000 / 60) // in minutes
 
@@ -316,7 +262,7 @@ export default function PlacementTestPage() {
   const retakeTest = () => {
     setCurrentStep('welcome')
     setCurrentQuestion(0)
-    setAnswers(Array(25).fill(-1))
+    setAnswers(Array(12).fill(-1))
     setResult(null)
   }
 
@@ -349,7 +295,7 @@ export default function PlacementTestPage() {
                 </h1>
                 
                 <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
-                  Take our comprehensive 25-question placement test to accurately determine your CEFR level (A1-C2) and receive personalized course recommendations.
+                  Take our comprehensive 12-question placement test to accurately determine your CEFR level (A1-C2) and receive personalized course recommendations.
                 </p>
               </div>
             </FadeIn>
@@ -357,8 +303,8 @@ export default function PlacementTestPage() {
             <ScaleIn delay={0.3}>
               <div className="grid md:grid-cols-3 gap-6 mb-12">
                 {[
-                  { icon: Clock, title: '15-20 Minutes', description: 'Complete at your own pace', gradient: 'from-blue-500 to-cyan-500' },
-                  { icon: TrendingUp, title: 'Progressive Difficulty', description: 'Questions from A1 to C2 level', gradient: 'from-violet-500 to-purple-500' },
+                  { icon: Clock, title: '8-10 Minutes', description: 'Complete at your own pace', gradient: 'from-blue-500 to-cyan-500' },
+                  { icon: TrendingUp, title: 'Progressive Difficulty', description: 'Questions from A1 to C1 level', gradient: 'from-violet-500 to-purple-500' },
                   { icon: Award, title: 'Instant Results', description: 'Get your CEFR level immediately', gradient: 'from-emerald-500 to-green-500' }
                 ].map((feature, index) => {
                   const IconComponent = feature.icon
@@ -569,26 +515,142 @@ export default function PlacementTestPage() {
         </section>
       )}
 
+      {/* Loading Screen */}
+      {currentStep === 'loading' && (
+        <section className="relative min-h-screen flex items-center justify-center py-20 px-4 sm:px-6">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-violet-500/5"></div>
+          <div className="relative max-w-2xl mx-auto text-center">
+            <FadeIn delay={0.1} direction="up">
+              <div className="mb-8">
+                <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-violet-500 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl animate-pulse">
+                  <Loader2 className="w-12 h-12 text-white animate-spin" />
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+                  Preparing Your Test...
+                </h2>
+                <p className="text-lg text-slate-600 font-light max-w-xl mx-auto mb-8">
+                  We're generating 12 personalized questions tailored just for you using AI. This ensures every student gets a unique test experience.
+                </p>
+                
+                {/* Progress Steps */}
+                <div className="space-y-4 max-w-md mx-auto">
+                  {[
+                    { step: 1, text: 'Analyzing your profile', icon: User },
+                    { step: 2, text: 'Generating unique questions', icon: Star },
+                    { step: 3, text: 'Calibrating difficulty levels', icon: TrendingUp },
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center space-x-4 bg-white rounded-xl p-4 border border-slate-200 shadow-sm">
+                      <div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-violet-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <item.icon className="w-5 h-5 text-blue-600" />
+                      </div>
+                      <span className="text-slate-700 font-medium">{item.text}</span>
+                      <div className="ml-auto">
+                        <Loader2 className="w-5 h-5 text-blue-600 animate-spin" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 text-sm text-slate-500">
+                  <Clock className="w-4 h-4 inline mr-1" />
+                  This usually takes 5-10 seconds...
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+      )}
+
       {/* Test Screen */}
       {currentStep === 'test' && (
         <section className="relative min-h-screen py-20 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            {/* Progress Bar */}
+            {/* Progress Section */}
             <FadeIn delay={0.1} direction="down">
-              <div className="mb-8">
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-sm font-semibold text-slate-700">
-                    Question {currentQuestion + 1} of 25
-                  </span>
-                  <span className="text-sm font-semibold text-blue-600">
-                    {Math.round(((currentQuestion + 1) / 25) * 100)}% Complete
-                  </span>
+              <div className="mb-8 bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
+                {/* Top Stats Row */}
+                <div className="flex justify-between items-center mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-violet-500 rounded-xl flex items-center justify-center shadow-lg">
+                      <span className="text-white font-bold text-lg">{currentQuestion + 1}</span>
+                    </div>
+                    <div>
+                      <p className="text-sm text-slate-500 font-medium">Current Question</p>
+                      <p className="text-lg font-bold text-slate-900">Question {currentQuestion + 1} of 12</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-slate-500 font-medium">Progress</p>
+                    <p className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+                      {Math.round(((currentQuestion + 1) / 12) * 100)}%
+                    </p>
+                  </div>
                 </div>
-                <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
+
+                {/* Progress Bar */}
+                <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden mb-4">
                   <div
-                    className="h-full bg-gradient-to-r from-blue-600 to-violet-600 transition-all duration-500 ease-out"
-                    style={{ width: `${((currentQuestion + 1) / 25) * 100}%` }}
+                    className="h-full bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 transition-all duration-500 ease-out"
+                    style={{ width: `${((currentQuestion + 1) / 12) * 100}%` }}
                   ></div>
+                </div>
+
+                {/* Question Dots Indicator */}
+                <div className="flex items-center justify-center gap-2 flex-wrap">
+                  {Array.from({ length: 12 }).map((_, index) => {
+                    const isAnswered = answers[index] !== -1
+                    const isCurrent = index === currentQuestion
+                    
+                    return (
+                      <div
+                        key={index}
+                        className={`relative group transition-all duration-300 ${
+                          isCurrent ? 'scale-110' : 'scale-100'
+                        }`}
+                      >
+                        <div
+                          className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold text-xs transition-all duration-300 ${
+                            isCurrent
+                              ? 'bg-gradient-to-br from-blue-500 to-violet-500 text-white shadow-lg ring-4 ring-blue-200'
+                              : isAnswered
+                              ? 'bg-gradient-to-br from-green-500 to-emerald-500 text-white shadow-md'
+                              : 'bg-slate-200 text-slate-500'
+                          }`}
+                        >
+                          {isAnswered && !isCurrent ? (
+                            <CheckCircle className="w-4 h-4" />
+                          ) : (
+                            index + 1
+                          )}
+                        </div>
+                        
+                        {/* Tooltip */}
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-10">
+                          <div className="bg-slate-900 text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap shadow-xl">
+                            Q{index + 1}: {isAnswered ? 'Answered ✓' : 'Not answered'}
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900"></div>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+
+                {/* Answered Counter */}
+                <div className="mt-4 flex items-center justify-center gap-6 text-sm">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-gradient-to-br from-green-500 to-emerald-500"></div>
+                    <span className="text-slate-600 font-medium">
+                      Answered: <strong className="text-slate-900">{answers.filter(a => a !== -1).length}</strong>
+                    </span>
+                  </div>
+                  <div className="w-px h-4 bg-slate-300"></div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-slate-300"></div>
+                    <span className="text-slate-600 font-medium">
+                      Remaining: <strong className="text-slate-900">{answers.filter(a => a === -1).length}</strong>
+                    </span>
+                  </div>
                 </div>
               </div>
             </FadeIn>
@@ -654,7 +716,7 @@ export default function PlacementTestPage() {
                   Previous
                 </button>
                 
-                {currentQuestion < 24 ? (
+                {currentQuestion < 11 ? (
                   <button
                     onClick={nextQuestion}
                     disabled={answers[currentQuestion] === -1}
@@ -712,11 +774,11 @@ export default function PlacementTestPage() {
                 {/* Stats Grid */}
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
                   <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-violet-50 rounded-2xl border border-blue-200">
-                    <div className="text-4xl font-bold text-blue-600 mb-2">{result.score}/25</div>
+                    <div className="text-4xl font-bold text-blue-600 mb-2">{result.score}/12</div>
                     <div className="text-sm text-slate-600 font-medium">Correct Answers</div>
                   </div>
                   <div className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-200">
-                    <div className="text-4xl font-bold text-green-600 mb-2">{Math.round((result.score / 25) * 100)}%</div>
+                    <div className="text-4xl font-bold text-green-600 mb-2">{Math.round((result.score / 12) * 100)}%</div>
                     <div className="text-sm text-slate-600 font-medium">Accuracy</div>
                   </div>
                   <div className="text-center p-6 bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl border border-orange-200">

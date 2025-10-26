@@ -1,5 +1,28 @@
 import { BookOpen, Users, Award, Target, Heart, Star, CheckCircle, ArrowRight, Globe, Trophy, Clock, UserCheck, ChevronRight } from 'lucide-react'
 import { FadeIn, ScaleIn, StaggerContainer, StaggerItem } from '@/components/client/AnimatedWrapper'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About Us - Expert English Training by Mishahira Arakkal',
+  description: 'Meet Mishahira Arakkal, founder and expert English trainer with 13+ years of experience. Learn about our mission to transform English communication skills in Kozhikode, Kerala.',
+  keywords: [
+    'English trainer Kozhikode',
+    'Mishahira Arakkal',
+    'Best English institute Kerala',
+    'English teaching expert',
+    'IELTS trainer Kozhikode',
+    'Experienced English coach'
+  ],
+  openGraph: {
+    title: 'About The Open Book - Expert English Training',
+    description: 'Founded by Mishahira Arakkal, expert trainer with 13+ years of experience in English communication training.',
+    url: 'https://theopenbookhira.com/about',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://theopenbookhira.com/about',
+  },
+}
 
 export default function AboutPage() {
   const values = [

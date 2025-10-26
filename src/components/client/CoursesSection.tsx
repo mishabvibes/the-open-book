@@ -98,3 +98,4 @@ export function CoursesSection({ courses, title, subtitle, badgeText, badgeIcon:
   )
 }
 
+

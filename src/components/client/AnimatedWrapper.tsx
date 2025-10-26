@@ -30,3 +30,4 @@ export function AnimatedWrapper({ children, type = 'fade', ...props }: AnimatedW
   }
 }
 
+

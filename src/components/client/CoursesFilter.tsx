@@ -32,3 +32,4 @@ export function CoursesFilter({ children }: CoursesFilterProps) {
   )
 }
 
+

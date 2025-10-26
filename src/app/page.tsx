@@ -1275,20 +1275,20 @@ export default function HomePage() {
 
         <div className="relative max-w-7xl mx-auto px-6">
           <FadeIn direction="up" delay={0.1}>
-            <div className="text-center mb-16">
+          <div className="text-center mb-16">
               <ScaleIn delay={0.2}>
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 px-5 py-3 rounded-full text-sm font-semibold border border-blue-100 shadow-sm mb-6">
-                  <Video className="h-4 w-4" />
-                  Self-Paced Learning
-                </div>
-              </ScaleIn>
-              <h2 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent mb-6">
-                Recorded Courses
-              </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
-                Master English at your own pace with our comprehensive library of recorded courses designed by expert instructors.
-              </p>
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 px-5 py-3 rounded-full text-sm font-semibold border border-blue-100 shadow-sm mb-6">
+              <Video className="h-4 w-4" />
+              Self-Paced Learning
             </div>
+              </ScaleIn>
+            <h2 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent mb-6">
+              Recorded Courses
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+              Master English at your own pace with our comprehensive library of recorded courses designed by expert instructors.
+            </p>
+          </div>
           </FadeIn>
 
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" staggerDelay={0.1}>
@@ -1349,20 +1349,20 @@ export default function HomePage() {
 
         <div className="relative max-w-7xl mx-auto px-6">
           <FadeIn direction="up" delay={0.1}>
-            <div className="text-center mb-16">
+          <div className="text-center mb-16">
               <ScaleIn delay={0.2}>
-                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-blue-200 px-5 py-3 rounded-full text-sm font-semibold border border-white/20 mb-6">
-                  <Users className="h-4 w-4" />
-                  Interactive Learning
-                </div>
-              </ScaleIn>
-              <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-                Live Classes & Programs
-              </h2>
-              <p className="text-xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed">
-                Join our interactive live sessions and intensive programs for accelerated learning with expert instructors.
-              </p>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-blue-200 px-5 py-3 rounded-full text-sm font-semibold border border-white/20 mb-6">
+              <Users className="h-4 w-4" />
+              Interactive Learning
             </div>
+              </ScaleIn>
+            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+              Live Classes & Programs
+            </h2>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed">
+              Join our interactive live sessions and intensive programs for accelerated learning with expert instructors.
+            </p>
+          </div>
           </FadeIn>
 
           {/* Live Classes Grid */}
@@ -1409,10 +1409,10 @@ export default function HomePage() {
 
           {/* Intensive Programs */}
           <FadeIn direction="up" delay={0.2}>
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-white mb-4">Intensive Programs</h3>
-              <p className="text-blue-100 max-w-2xl mx-auto">Fast-track your learning with our specialized intensive courses and workshops.</p>
-            </div>
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-white mb-4">Intensive Programs</h3>
+            <p className="text-blue-100 max-w-2xl mx-auto">Fast-track your learning with our specialized intensive courses and workshops.</p>
+          </div>
           </FadeIn>
 
           <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto" staggerDelay={0.15}>
@@ -1479,20 +1479,20 @@ export default function HomePage() {
 
         <div className="relative max-w-7xl mx-auto px-6">
           <FadeIn direction="up" delay={0.1}>
-            <div className="text-center mb-16">
+          <div className="text-center mb-16">
               <ScaleIn delay={0.2}>
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-50 to-purple-50 text-violet-700 px-5 py-3 rounded-full text-sm font-semibold border border-violet-100 shadow-sm mb-6">
-                  <Target className="h-4 w-4" />
-                  Structured Learning
-                </div>
-              </ScaleIn>
-              <h2 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-slate-900 via-violet-900 to-purple-900 bg-clip-text text-transparent mb-6">
-                Your Learning Journey
-              </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
-                Follow our carefully designed learning path from foundation to mastery, with clear milestones and achievements.
-              </p>
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-50 to-purple-50 text-violet-700 px-5 py-3 rounded-full text-sm font-semibold border border-violet-100 shadow-sm mb-6">
+              <Target className="h-4 w-4" />
+              Structured Learning
             </div>
+              </ScaleIn>
+            <h2 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-slate-900 via-violet-900 to-purple-900 bg-clip-text text-transparent mb-6">
+              Your Learning Journey
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+              Follow our carefully designed learning path from foundation to mastery, with clear milestones and achievements.
+            </p>
+          </div>
           </FadeIn>
 
           <div className="relative">
@@ -1544,8 +1544,8 @@ export default function HomePage() {
                 );
               })}
             </StaggerContainer>
+            </div>
           </div>
-        </div>
       </section>
 
       {/* Associated Institutions Section */}
@@ -1566,7 +1566,7 @@ export default function HomePage() {
               <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900">
                 <span className="font-bold">Associated with</span>
               </h2>
-            </div>
+        </div>
 
             <div className="mx-auto my-6 md:my-8 h-px max-w-xs md:max-w-md bg-slate-200 [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
           </FadeIn>
@@ -1591,7 +1591,7 @@ export default function HomePage() {
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-gradient-to-br from-blue-200/30 to-blue-200/30 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 right-0 w-56 sm:w-72 md:w-80 h-56 sm:h-72 md:h-80 bg-gradient-to-tl from-blue-200/30 to-blue-200/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
+          </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-center">
@@ -1601,8 +1601,8 @@ export default function HomePage() {
                 <div className="inline-flex items-center bg-white/80 backdrop-blur-sm border-2 border-emerald-200 text-emerald-700 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-bold mb-2 sm:mb-3 md:mb-4 shadow-lg">
                   <Award className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2 flex-shrink-0" />
                   <span className="whitespace-nowrap">Free CEFR Assessment</span>
-                </div>
-                
+            </div>
+
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                   <span className="text-slate-900">Discover Your</span>{' '}
                   <span className="bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text text-transparent">
@@ -1658,12 +1658,12 @@ export default function HomePage() {
                           {i}k
                         </div>
                       ))}
-                    </div>
-                    <div>
+                      </div>
+                      <div>
                       <p className="text-xs sm:text-sm font-bold text-slate-900">5000+ Students</p>
                       <p className="text-xs text-slate-600">Already tested</p>
+                      </div>
                     </div>
-                  </div>
                   <div className="flex items-center gap-2">
                     <div className="flex">
                       {[1, 2, 3, 4, 5].map((i) => (
@@ -1720,9 +1720,9 @@ export default function HomePage() {
                             }`}>
                               {option}
                             </span>
-                          </div>
-                        </div>
-                      ))}
+                  </div>
+                </div>
+              ))}
                     </div>
 
                     {/* Progress Bar */}
@@ -1735,8 +1735,8 @@ export default function HomePage() {
                         <div className="h-full bg-gradient-to-r from-emerald-600 to-green-600 rounded-full transition-all duration-300" style={{ width: '44%' }}></div>
                       </div>
                     </div>
-                  </div>
-                </div>
+            </div>
+          </div>
 
                 {/* Floating Elements */}
                 <div className="hidden md:block absolute -top-4 lg:-top-6 -right-4 lg:-right-6 w-24 h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl lg:rounded-3xl opacity-20 rotate-12 animate-pulse"></div>
@@ -1745,7 +1745,7 @@ export default function HomePage() {
             </ScaleIn>
           </div>
         </div>
-      </section>
+        </section>
 
       {/* Enhanced Membership Plans Section */}
       <section className="relative py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
@@ -1754,20 +1754,20 @@ export default function HomePage() {
 
         <div className="relative max-w-7xl mx-auto px-6">
           <FadeIn direction="up" delay={0.1}>
-            <div className="text-center mb-16">
+          <div className="text-center mb-16">
               <ScaleIn delay={0.2}>
-                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-blue-200 px-5 py-3 rounded-full text-sm font-semibold border border-white/20 mb-6">
-                  <Award className="h-4 w-4" />
-                  Flexible Plans
-                </div>
-              </ScaleIn>
-              <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-                Choose Your Plan
-              </h2>
-              <p className="text-xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed">
-                Select the perfect membership plan that fits your learning goals and budget. All plans include our quality guarantee.
-              </p>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-blue-200 px-5 py-3 rounded-full text-sm font-semibold border border-white/20 mb-6">
+              <Award className="h-4 w-4" />
+              Flexible Plans
             </div>
+              </ScaleIn>
+            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+              Choose Your Plan
+            </h2>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed">
+              Select the perfect membership plan that fits your learning goals and budget. All plans include our quality guarantee.
+            </p>
+          </div>
           </FadeIn>
 
           <StaggerContainer className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" staggerDelay={0.15}>
@@ -1822,11 +1822,11 @@ export default function HomePage() {
           </StaggerContainer>
 
           <FadeIn direction="up" delay={0.6}>
-            <div className="text-center mt-12">
-              <p className="text-blue-200 text-sm">
-                All plans include 7-day free trial • Cancel anytime • 30-day money-back guarantee
-              </p>
-            </div>
+          <div className="text-center mt-12">
+            <p className="text-blue-200 text-sm">
+              All plans include 7-day free trial • Cancel anytime • 30-day money-back guarantee
+            </p>
+          </div>
           </FadeIn>
         </div>
       </section>
