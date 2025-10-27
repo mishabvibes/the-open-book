@@ -1029,7 +1029,7 @@ export default function HomePage() {
       description: "Interactive live sessions to improve your spoken English fluency and confidence.",
       icon: MessageSquare,
       onlinePrice: "₹1,999",
-      offlinePrice: "₹3,999",
+      offlinePrice: "₹5,999",
       duration: "Ongoing",
       level: "All Levels"
     },
@@ -1056,7 +1056,7 @@ export default function HomePage() {
       description: "Comprehensive IELTS training with expert guidance and practice tests.",
       icon: GraduationCap,
       onlinePrice: "₹5,999",
-      offlinePrice: "₹7,999",
+      offlinePrice: "₹9,999",
       duration: "3 months",
       level: "Intermediate+"
     }
@@ -1191,7 +1191,7 @@ export default function HomePage() {
       description: "Intensive learning in Basic English, Grammar, Workplace English, or Business English.",
       icon: Zap,
       onlinePrice: "₹1,999",
-      offlinePrice: "₹1,999",
+      offlinePrice: "₹2,999",
       duration: "5 days",
       level: "All Levels",
       variants: ["Basic English & Grammar", "English for Workplace", "Business English"]
@@ -1200,8 +1200,8 @@ export default function HomePage() {
       title: "Interview Training Workshop",
       description: "Intensive 2-day workshop focused on interview skills and confidence building.",
       icon: Target,
-      onlinePrice: "₹1,499",
-      offlinePrice: "₹1,499",
+      onlinePrice: "₹999",
+      offlinePrice: "₹1999",
       duration: "2 days",
       level: "All Levels"
     }
@@ -1215,7 +1215,7 @@ export default function HomePage() {
       period: "/month",
       description: "Perfect for beginners starting their English learning journey",
       features: [
-        "Access to recorded courses",
+        "Access to any 2 recorded courses",
         "Basic grammar modules",
         "Phonics training",
         "Community support",
@@ -1296,17 +1296,17 @@ export default function HomePage() {
               const IconComponent = course.icon;
               return (
                 <StaggerItem key={index}>
-                  <div className="group relative">
+                  <div className="group relative h-full">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                  <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl border border-slate-200/80 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 overflow-hidden">
-                    <div className="p-8">
+                  <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl border border-slate-200/80 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 overflow-hidden h-full flex flex-col">
+                    <div className="p-8 flex flex-col h-full">
                       <div className="w-16 h-16 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-blue-100">
                         <IconComponent className="h-8 w-8 text-blue-600" />
                       </div>
                       <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-900 transition-colors">
                         {course.title}
                       </h3>
-                      <p className="text-slate-600 mb-6 text-sm leading-relaxed">
+                      <p className="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">
                         {course.description}
                       </p>
 
@@ -1327,7 +1327,7 @@ export default function HomePage() {
                         </div>
                       </div>
 
-                      <button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 px-6 rounded-2xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform group-hover:scale-105 shadow-lg hover:shadow-xl">
+                      <button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 px-6 rounded-2xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform group-hover:scale-105 shadow-lg hover:shadow-xl mt-auto">
                         Access Course
                       </button>
                     </div>
@@ -1371,14 +1371,14 @@ export default function HomePage() {
               const IconComponent = course.icon;
               return (
                 <StaggerItem key={index}>
-                  <div className="group relative">
+                  <div className="group relative h-full">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
-                  <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-300 p-6">
+                  <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-300 p-6 h-full flex flex-col">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-white/10">
                       <IconComponent className="h-6 w-6 text-blue-300" />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2">{course.title}</h3>
-                    <p className="text-blue-100 text-sm mb-4 leading-relaxed">{course.description}</p>
+                    <p className="text-blue-100 text-sm mb-4 leading-relaxed flex-grow">{course.description}</p>
 
                     <div className="space-y-2 mb-4">
                       <div className="flex justify-between items-center text-sm">
@@ -1397,7 +1397,7 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <button className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 px-4 rounded-xl font-semibold hover:from-blue-400 hover:to-indigo-400 transition-all duration-200 transform hover:scale-105 shadow-lg">
+                    <button className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 px-4 rounded-xl font-semibold hover:from-blue-400 hover:to-indigo-400 transition-all duration-200 transform hover:scale-105 shadow-lg mt-auto">
                       Join Class
                     </button>
                   </div>
@@ -1420,9 +1420,9 @@ export default function HomePage() {
               const IconComponent = program.icon;
               return (
                 <StaggerItem key={index}>
-                  <div className="group relative">
+                  <div className="group relative h-full">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-400 to-orange-400 rounded-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
-                  <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-300 p-8">
+                  <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-300 p-8 h-full flex flex-col">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-amber-400/20 to-orange-400/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform border border-white/10">
                         <IconComponent className="h-8 w-8 text-amber-300" />
@@ -1436,12 +1436,12 @@ export default function HomePage() {
                     <p className="text-blue-100 mb-6 leading-relaxed">{program.description}</p>
 
                     {program.variants && (
-                      <div className="mb-6">
+                      <div className="mb-6 flex-grow">
                         <h4 className="text-white font-semibold mb-3">Available Variants:</h4>
                         <div className="space-y-2">
                           {program.variants.map((variant, idx) => (
                             <div key={idx} className="flex items-center gap-2 text-blue-200 text-sm">
-                              <CheckCircle className="h-4 w-4 text-emerald-400" />
+                              <CheckCircle className="h-4 w-4 text-emerald-400 flex-shrink-0" />
                               {variant}
                             </div>
                           ))}
@@ -1449,7 +1449,7 @@ export default function HomePage() {
                       </div>
                     )}
 
-                    <div className="flex gap-4 mb-6">
+                    <div className="flex gap-4 mb-6 mt-auto">
                       <div className="flex-1 text-center">
                         <div className="text-amber-300 font-semibold">Online</div>
                         <div className="text-white font-bold text-xl">{program.onlinePrice}</div>
@@ -1496,15 +1496,15 @@ export default function HomePage() {
           </FadeIn>
 
           <div className="relative">
-            <StaggerContainer className="flex flex-col lg:flex-row justify-between items-center space-y-12 lg:space-y-0 lg:space-x-8" staggerDelay={0.15}>
+            <StaggerContainer className="flex flex-col lg:flex-row justify-between items-stretch space-y-12 lg:space-y-0 lg:space-x-8" staggerDelay={0.15}>
               {learningPath.map((step, index) => {
                 const IconComponent = step.icon;
                 return (
                   <StaggerItem key={index}>
-                    <div className="relative flex-1 max-w-sm group">
-                    <div className="relative">
+                    <div className="relative flex-1 max-w-sm group h-full flex">
+                    <div className="relative w-full">
                       <div className="absolute -inset-0.5 bg-gradient-to-r from-violet-500 to-purple-500 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                      <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-lg shadow-slate-900/10 border border-slate-200/80 p-8 text-center hover:shadow-2xl hover:shadow-violet-500/10 transition-all duration-500">
+                      <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-lg shadow-slate-900/10 border border-slate-200/80 p-8 text-center hover:shadow-2xl hover:shadow-violet-500/10 transition-all duration-500 h-full flex flex-col">
                         {/* Step number */}
                         <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-violet-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
                           {index + 1}
@@ -1517,11 +1517,11 @@ export default function HomePage() {
                         <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-violet-900 transition-colors">
                           {step.stage}
                         </h3>
-                        <p className="text-slate-600 font-light mb-6 leading-relaxed">
+                        <p className="text-slate-600 font-light mb-6 leading-relaxed flex-grow">
                           {step.description}
                         </p>
 
-                        <div className="space-y-2">
+                        <div className="space-y-2 mt-auto">
                           <div className="text-sm font-semibold text-violet-700 mb-2">Key Courses:</div>
                           {step.courses.map((course, courseIndex) => (
                             <div key={courseIndex} className="inline-block bg-gradient-to-r from-violet-100 to-purple-100 text-violet-800 px-3 py-1 rounded-full text-xs font-medium mr-2 mb-2 border border-violet-200">
@@ -1773,15 +1773,15 @@ export default function HomePage() {
           <StaggerContainer className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" staggerDelay={0.15}>
             {memberships.map((plan, index) => (
               <StaggerItem key={index}>
-                <div className={`relative group ${plan.popular ? 'scale-105' : ''}`}>
+                <div className={`relative group h-full ${plan.popular ? 'md:scale-105' : ''}`}>
                 <div className={`absolute -inset-0.5 bg-gradient-to-r rounded-3xl transition-opacity duration-300 ${plan.popular
                     ? 'from-amber-400 to-orange-400 opacity-30'
                     : 'from-blue-400 to-indigo-400 opacity-0 group-hover:opacity-20'
                   }`}></div>
 
-                <div className={`relative bg-white/10 backdrop-blur-lg rounded-3xl border p-8 transition-all duration-500 ${plan.popular
-                    ? 'border-amber-400/50 bg-white/15 h-full'
-                    : 'border-white/20 hover:border-white/40 hover:bg-white/15 h-full'
+                <div className={`relative bg-white/10 backdrop-blur-lg rounded-3xl border p-8 transition-all duration-500 flex flex-col h-full ${plan.popular
+                    ? 'border-amber-400/50 bg-white/15'
+                    : 'border-white/20 hover:border-white/40 hover:bg-white/15'
                   }`}>
                   {plan.popular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -1800,7 +1800,7 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <ul className="space-y-4 mb-8">
+                  <ul className="space-y-4 mb-8 flex-grow">
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
