@@ -3,6 +3,7 @@
 This guide will help you set up a **completely FREE** contact form that stores data in Google Sheets and sends email notifications.
 
 ## 📋 What You'll Need
+
 - A Google account
 - 15 minutes of your time
 
@@ -55,18 +56,18 @@ function doPost(e) {
   try {
     // Parse the incoming data
     const data = JSON.parse(e.postData.contents);
-    
+  
     // Save to Google Sheet
     saveToSheet(data);
-    
+  
     // Send email notification
     sendEmailNotification(data);
-    
+  
     // Return success response
     return ContentService
       .createTextOutput(JSON.stringify({ 'result': 'success', 'data': data }))
       .setMimeType(ContentService.MimeType.JSON);
-      
+    
   } catch (error) {
     // Log error and return error response
     Logger.log('Error: ' + error.toString());
@@ -206,37 +207,37 @@ function createEmailBody(data) {
         <h1>🎓 New Contact Form Submission</h1>
         <p style="margin: 10px 0 0 0; opacity: 0.9;">from ${CONFIG.WEBSITE_NAME}</p>
       </div>
-      
+    
       <div class="content">
         <div class="field">
           <div class="field-label">👤 Name</div>
           <div class="field-value">${data.name}</div>
         </div>
-        
+      
         <div class="field">
           <div class="field-label">📧 Email</div>
           <div class="field-value"><a href="mailto:${data.email}">${data.email}</a></div>
         </div>
-        
+      
         <div class="field">
           <div class="field-label">📱 Phone</div>
           <div class="field-value"><a href="tel:${data.phone}">${data.phone}</a></div>
         </div>
-        
+      
         <div class="field">
           <div class="field-label">📚 Interested In</div>
           <div class="field-value">${data.course}</div>
         </div>
-        
+      
         <div class="field-label" style="margin: 20px 0 10px 0;">💬 Message</div>
         <div class="message-box">
           ${data.message}
         </div>
-        
+      
         <div class="timestamp">
           ⏰ Received on ${timestamp}
         </div>
-        
+      
         <div class="footer">
           <p><strong>Quick Actions:</strong></p>
           <p>
@@ -318,6 +319,7 @@ const CONFIG = {
 
 ```env
 NEXT_PUBLIC_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
+NEXT_PUBLIC_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
 ```
 
 Replace `YOUR_SCRIPT_ID` with the actual URL you copied in Step 5.
@@ -327,6 +329,7 @@ Replace `YOUR_SCRIPT_ID` with the actual URL you copied in Step 5.
 ### Step 7: Test Your Contact Form
 
 1. Restart your Next.js development server:
+
 ```bash
 npm run dev
 ```
@@ -359,26 +362,29 @@ Your contact form is now fully functional and completely free!
 When deploying to Vercel, Netlify, or other platforms:
 
 1. Add the environment variable in your hosting platform:
+
    - **Vercel**: Project Settings → Environment Variables
    - **Netlify**: Site Settings → Environment Variables
    - Variable name: `NEXT_PUBLIC_GOOGLE_SCRIPT_URL`
    - Value: Your Google Apps Script Web App URL
-
 2. Redeploy your site
 
 ## 🔧 Troubleshooting
 
 ### Form submission fails
+
 - Check that `.env.local` has the correct URL
 - Restart your dev server after adding `.env.local`
 - Verify the Apps Script deployment is set to "Anyone" can access
 
 ### Email not received
+
 - Check spam/junk folder
 - Verify the email address in CONFIG section
 - Check Apps Script logs: Apps Script Editor → Execution log
 
 ### Data not in Google Sheets
+
 - Make sure the sheet has the correct headers
 - Check Apps Script logs for errors
 - Re-run the `testScript` function
@@ -414,6 +420,7 @@ function sendAutoResponse(data) {
 ```
 
 Then add this line in the `doPost` function after `sendEmailNotification(data);`:
+
 ```javascript
 sendAutoResponse(data); // Send confirmation to user
 ```
@@ -456,6 +463,7 @@ function sendSlackNotification(data) {
 ## 🎯 Cost
 
 **Everything is 100% FREE:**
+
 - ✅ Google Sheets: Free
 - ✅ Google Apps Script: Free
 - ✅ Gmail for notifications: Free
@@ -465,5 +473,3 @@ function sendSlackNotification(data) {
 ---
 
 Need help? Contact: theopenbookbyhira@gmail.com
-
-
