@@ -231,7 +231,7 @@ export default function PlacementTestPage() {
     }
   }
 
-  const calculateResult = () => {
+  const calculateResult = async () => {
     let correctCount = 0
     answers.forEach((answer, index) => {
       if (answer === testQuestions[index].correctAnswer) {
@@ -251,12 +251,49 @@ export default function PlacementTestPage() {
 
     const timeTaken = Math.round((Date.now() - timeStarted) / 1000 / 60) // in minutes
 
-    setResult({
+    // Get recommendation based on level
+    const recommendation = cefrLevels[level as keyof typeof cefrLevels]?.recommendation || ''
+
+    const testResult = {
       score: correctCount,
       level,
       timeTaken
-    })
+    }
+
+    setResult(testResult)
     setCurrentStep('results')
+
+    // Send results to Google Sheets (async, non-blocking)
+    try {
+      const scriptURL = process.env.NEXT_PUBLIC_PLACEMENT_TEST_SCRIPT_URL
+      
+      if (scriptURL) {
+        await fetch(scriptURL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            timestamp: new Date().toISOString(),
+            name: formData.name,
+            email: formData.email,
+            whatsapp: formData.whatsapp,
+            level: level,
+            scoreText: `${correctCount}/12`,
+            percentage: `${Math.round(percentage)}%`,
+            timeTaken: timeTaken.toString(),
+            recommendation: recommendation
+          })
+        })
+        console.log('✅ Test results sent to Google Sheets successfully')
+      } else {
+        console.warn('⚠️ Placement test Google Script URL not configured')
+      }
+    } catch (error) {
+      console.error('❌ Error sending results to Google Sheets:', error)
+      // Don't show error to user - results are already displayed
+    }
   }
 
   const retakeTest = () => {
