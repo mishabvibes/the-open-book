@@ -911,19 +911,19 @@ export default function CoursesPage() {
       </section>
 
       {/* FAQ Section - SEO Optimized with Chat Accordion */}
-      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50/30">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-slate-50 to-blue-50/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <FadeIn delay={0.1} direction="up">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
+            <div className="text-center mb-8 sm:mb-12 md:mb-16">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6 px-2">Frequently Asked Questions</h2>
+              <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light px-4">
                 Everything you need to know about our English courses in Kozhikode, Kerala. Get instant answers to your questions.
-            </p>
-          </div>
+              </p>
+            </div>
           </FadeIn>
 
           <div className="max-w-5xl mx-auto">
-            <FaqAccordion 
+            <FaqAccordion
               data={[
                 {
                   question: "Which is the best English speaking course in Kozhikode?",
@@ -1028,30 +1028,32 @@ export default function CoursesPage() {
 
           {/* Still Have Questions CTA */}
           <FadeIn delay={0.5} direction="up">
-            <div className="mt-16 text-center">
-              <div className="bg-gradient-to-r from-blue-600 via-violet-600 to-emerald-600 rounded-3xl p-12 text-white max-w-4xl mx-auto shadow-2xl">
-                <h3 className="text-3xl font-bold mb-4">Still Have Questions?</h3>
-                <p className="text-xl text-blue-50 mb-8 font-light">
+            <div className="mt-8 sm:mt-12 md:mt-16 text-center px-2">
+              <div className="bg-gradient-to-r from-blue-600 via-violet-600 to-emerald-600 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-12 text-white max-w-4xl mx-auto shadow-2xl">
+                <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Still Have Questions?</h3>
+                <p className="text-base sm:text-lg md:text-xl text-blue-50 mb-6 sm:mb-8 font-light px-2">
                   Our expert team is here to help you choose the perfect English course for your goals
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                   <a
                     href="tel:+918893467437"
-                    className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-2xl text-lg font-bold hover:bg-blue-50 transition-all duration-200 shadow-xl"
+                    className="inline-flex items-center justify-center bg-white text-blue-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg font-bold hover:bg-blue-50 transition-all duration-200 shadow-xl"
                   >
-                    <MessageCircle className="mr-2 h-5 w-5" />
-                    Call +91 88934 67437
+                    <MessageCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    <span className="text-sm sm:text-base">Call +91 88934 67437</span>
                   </a>
                   <a
                     href="/contact"
-                    className="inline-flex items-center justify-center border-2 border-white text-white px-8 py-4 rounded-2xl text-lg font-bold hover:bg-white/10 transition-all duration-200"
+                    className="inline-flex items-center justify-center border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg font-bold hover:bg-white/10 transition-all duration-200"
                   >
-                    Get Free Consultation
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <span className="text-sm sm:text-base">Get Free Consultation</span>
+                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                   </a>
-          </div>
-                <p className="mt-6 text-sm text-blue-100">
-                  📍 Located in Kozhikode, Kerala | 📧 theopenbookbyhira@gmail.com | ⭐ 4.9/5 Rating from 5000+ Students
+                </div>
+                <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-blue-100 leading-relaxed">
+                  📍 Located in Kozhikode, Kerala<span className="hidden sm:inline"> | </span><br className="sm:hidden" />
+                  📧 theopenbookbyhira@gmail.com<span className="hidden sm:inline"> | </span><br className="sm:hidden" />
+                  ⭐ 4.9/5 Rating from 5000+ Students
                 </p>
               </div>
             </div>
