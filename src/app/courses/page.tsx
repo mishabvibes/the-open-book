@@ -3,6 +3,7 @@
 import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useState } from 'react'
 import { BookOpen, Clock, Users, Star, CheckCircle, ArrowRight, Filter, Search, Play, Award, Target, Globe, MessageCircle, ChevronRight, Video, MapPin, Calendar, Zap, User, GraduationCap, FileText, Briefcase } from 'lucide-react'
 import { FadeIn, ScaleIn, StaggerContainer, StaggerItem } from '@/components/client/AnimatedWrapper'
+import { FaqAccordion } from '@/components/ui/faq-chat-accordion'
 
 export default function CoursesPage() {
   // Courses page keeps 'use client' due to complex filtering/search state
@@ -909,73 +910,152 @@ export default function CoursesPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section - SEO Optimized with Chat Accordion */}
       <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50/30">
         <div className="max-w-7xl mx-auto px-6">
+          <FadeIn delay={0.1} direction="up">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
-              Get answers to common questions about our courses and enrollment process.
+                Everything you need to know about our English courses in Kozhikode, Kerala. Get instant answers to your questions.
             </p>
           </div>
+          </FadeIn>
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-            <StaggerContainer className="space-y-8" staggerDelay={0.1}>
-              {[
+          <div className="max-w-5xl mx-auto">
+            <FaqAccordion 
+              data={[
                 {
-                  question: "What's the difference between live and recorded courses?",
-                  answer: "Live courses offer real-time interaction with instructors and classmates, while recorded courses provide flexibility to learn at your own pace with lifetime access."
+                  question: "Which is the best English speaking course in Kozhikode?",
+                  answer: "The Open Book offers the best English speaking courses in Kozhikode with live interactive sessions, expert instructors with 13+ years of experience, and proven results with 5000+ successful students. Our courses include Spoken English for Adults, IELTS Preparation, and Business English, all designed for practical fluency.",
+                  category: "Popular",
+                  icon: "🌟"
                 },
                 {
-                  question: "Do you provide certificates upon completion?",
-                  answer: "Yes, all students receive completion certificates that are valuable for career advancement and educational purposes."
+                  question: "How much does English coaching cost in Kozhikode?",
+                  answer: "Our English courses in Kozhikode start from ₹1,499 for intensive workshops and range up to ₹7,999 for comprehensive IELTS preparation. Live online classes start at ₹1,999/month, while offline classroom sessions begin at ₹3,999/month. We also offer recorded courses from ₹699 with lifetime access, making quality English education affordable for everyone.",
+                  category: "Pricing",
+                  icon: "💰"
                 },
                 {
-                  question: "Can I switch from online to offline classes?",
-                  answer: "Yes, we offer flexible learning options. You can discuss switching modes with our support team based on availability."
+                  question: "What is the difference between online and offline English classes?",
+                  answer: "Online classes (₹1,999-₹5,999) offer convenience and live interactive sessions from home with recorded playback. Offline classes (₹3,999-₹7,999) in Kozhikode provide face-to-face interaction, immediate doubt resolution, and a traditional classroom environment. Both formats include the same expert instruction, certificates, and learning materials.",
+                  category: "Learning Format",
+                  icon: "💻"
                 },
                 {
-                  question: "What is the batch size for live classes?",
-                  answer: "We maintain small batch sizes (8-25 students) depending on the course to ensure personalized attention and effective learning."
+                  question: "How long does it take to learn English fluently?",
+                  answer: "Most students achieve conversational fluency in 3-4 months with our structured courses. Beginners typically complete our Phonics + Spoken English program in 4-6 months, while advanced learners targeting IELTS or professional English see results in 2-3 months. Progress depends on regular practice and course attendance.",
+                  category: "Duration",
+                  icon: "⏱️"
+                },
+                {
+                  question: "Do you provide IELTS coaching in Kozhikode?",
+                  answer: "Yes! Our comprehensive IELTS preparation course in Kozhikode covers all 4 modules (Listening, Reading, Writing, Speaking) with expert trainers, regular mock tests, and personalized feedback. Students have achieved band scores of 7.5-8.5. The course duration is 10-12 weeks with both online (₹5,999) and offline (₹7,999) options available.",
+                  category: "IELTS",
+                  icon: "🎓"
+                },
+                {
+                  question: "Are the courses suitable for complete beginners?",
+                  answer: "Absolutely! We welcome complete beginners with our foundation courses including Phonics Training and Basic Grammar. Our expert instructors start from the fundamentals with letter sounds, basic vocabulary, and simple conversations. Over 60% of our 5000+ students started as complete beginners and now speak English confidently.",
+                  category: "Beginner-Friendly",
+                  icon: "✨"
+                },
+                {
+                  question: "What makes your English institute different from others in Kozhikode?",
+                  answer: "The Open Book stands out with 13+ years of proven track record, small batch sizes (8-25 students) for personalized attention, certified instructors, lifetime access to recorded courses, free placement test, flexible online/offline options, practical real-world training, and 95% success rate. Founded by Mishahira Arakkal, we focus on building genuine communication skills, not just grammar.",
+                  category: "Why Choose Us",
+                  icon: "🏆"
+                },
+                {
+                  question: "Do you offer English courses for kids in Kozhikode?",
+                  answer: "Yes! Our Spoken English for Kids program (ages 6-14) makes learning fun through interactive games, storytelling, and age-appropriate activities. Classes have small batches of 8-12 children, experienced child specialist instructors, and visual learning aids. Parents receive regular progress updates. Available online (₹1,999) and offline (₹3,999) in Kozhikode.",
+                  category: "Kids Courses",
+                  icon: "👶"
+                },
+                {
+                  question: "What qualifications do your English instructors have?",
+                  answer: "All our instructors are highly qualified with TESOL/TEFL certifications, Bachelor's/Master's degrees in English, and 5-13 years of teaching experience. They undergo continuous training and specialize in areas like IELTS, Business English, Phonics, and Communication Skills. Founder Mishahira Arakkal personally trains the faculty team.",
+                  category: "Faculty",
+                  icon: "👨‍🏫"
+                },
+                {
+                  question: "Will I get a certificate after completing the course?",
+                  answer: "Yes! All students receive an official completion certificate from The Open Book that's valuable for job applications, promotions, and academic purposes. IELTS students also get detailed score reports and performance analysis. Certificates include your course name, duration, and achievement level.",
+                  category: "Certification",
+                  icon: "📜"
+                },
+                {
+                  question: "Can I get a job after completing your English course?",
+                  answer: "Absolutely! Our Professional English, Business English, and Interview Training courses are specifically designed for career advancement. Many students have secured jobs in BPOs, IT companies, hospitality, and teaching after completing our courses. We provide resume preparation, interview coaching, and job search strategies as part of career-focused programs.",
+                  category: "Career Benefits",
+                  icon: "💼"
+                },
+                {
+                  question: "Do you offer trial classes before enrollment?",
+                  answer: "Yes! We offer free trial classes for all live courses so you can experience our teaching methodology before enrolling. Additionally, take our free CEFR placement test (25 questions, 15 minutes) to know your current English level and get personalized course recommendations. No credit card required.",
+                  category: "Trial & Testing",
+                  icon: "🎯"
+                },
+                {
+                  question: "What are the class timings for online and offline courses?",
+                  answer: "We offer flexible timings to suit working professionals and students. Online classes: Morning (7-9 AM), Evening (6-8 PM), Weekend batches. Offline classes in Kozhikode: Mon-Fri (9 AM-7 PM), Saturday (9 AM-6 PM). Recorded courses available 24/7 with lifetime access. Contact us for current batch schedules.",
+                  category: "Schedule",
+                  icon: "🕐"
+                },
+                {
+                  question: "Is there any refund policy or money-back guarantee?",
+                  answer: "Yes! We offer a 7-day 100% money-back guarantee if you're not satisfied with the course quality or teaching methodology. No questions asked. This demonstrates our confidence in delivering excellent English education. Refund process is simple and completed within 5-7 business days.",
+                  category: "Guarantee",
+                  icon: "✅"
+                },
+                {
+                  question: "Can I access course materials after course completion?",
+                  answer: "Recorded courses come with lifetime access including all future updates, new lessons, and additional materials. Live course students get access to recorded sessions, study materials, practice worksheets, and resources for 12 months after course completion. You can revisit and revise anytime.",
+                  category: "Course Access",
+                  icon: "📚"
+                },
+                {
+                  question: "Do you offer installment payment options for courses?",
+                  answer: "Yes! We understand that quality education should be accessible to everyone. We offer flexible EMI options and installment plans for courses above ₹3,000. Pay in 2-3 monthly installments with zero interest. UPI, cards, net banking, and cash payments accepted. Contact our team for customized payment arrangements.",
+                  category: "Payment Options",
+                  icon: "💳"
                 }
-              ].map((faq, index) => (
-                <StaggerItem key={index}>
-                  <div className="bg-white rounded-3xl p-8 border border-slate-200 hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 group">
-                    <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-900 transition-colors">{faq.question}</h3>
-                    <p className="text-slate-600 font-light leading-relaxed">{faq.answer}</p>
+              ]}
+              className="p-0"
+            />
                   </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
 
-            <StaggerContainer className="space-y-8" staggerDelay={0.15}>
-              {[
-                {
-                  question: "What is your refund policy?",
-                  answer: "We offer a 7-day money-back guarantee if you're not satisfied with the course content or teaching quality."
-                },
-                {
-                  question: "How long do I have access to recorded courses?",
-                  answer: "Recorded courses come with lifetime access, including any future updates and additional materials added to the course."
-                },
-                {
-                  question: "Are there any prerequisites for enrollment?",
-                  answer: "Most courses have no prerequisites. We welcome beginners and provide foundation-level content to help everyone succeed."
-                },
-                {
-                  question: "Do you offer payment plans or installments?",
-                  answer: "Yes, we offer flexible payment options and installment plans. Contact our support team to discuss payment arrangements."
-                }
-              ].map((faq, index) => (
-                <StaggerItem key={index}>
-                  <div className="bg-white rounded-3xl p-8 border border-slate-200 hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 group">
-                    <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-900 transition-colors">{faq.question}</h3>
-                    <p className="text-slate-600 font-light leading-relaxed">{faq.answer}</p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
+          {/* Still Have Questions CTA */}
+          <FadeIn delay={0.5} direction="up">
+            <div className="mt-16 text-center">
+              <div className="bg-gradient-to-r from-blue-600 via-violet-600 to-emerald-600 rounded-3xl p-12 text-white max-w-4xl mx-auto shadow-2xl">
+                <h3 className="text-3xl font-bold mb-4">Still Have Questions?</h3>
+                <p className="text-xl text-blue-50 mb-8 font-light">
+                  Our expert team is here to help you choose the perfect English course for your goals
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="tel:+918893467437"
+                    className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-2xl text-lg font-bold hover:bg-blue-50 transition-all duration-200 shadow-xl"
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Call +91 88934 67437
+                  </a>
+                  <a
+                    href="/contact"
+                    className="inline-flex items-center justify-center border-2 border-white text-white px-8 py-4 rounded-2xl text-lg font-bold hover:bg-white/10 transition-all duration-200"
+                  >
+                    Get Free Consultation
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </a>
           </div>
+                <p className="mt-6 text-sm text-blue-100">
+                  📍 Located in Kozhikode, Kerala | 📧 theopenbookbyhira@gmail.com | ⭐ 4.9/5 Rating from 5000+ Students
+                </p>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
